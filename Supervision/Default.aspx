@@ -5,7 +5,7 @@
     <div class="jumbotron">
         <h1>Supervision</h1>
         <p class="lead">Supervision is a homegrown solution to an institute's invigilation needs built by the students.</p>
-        <p><a href="~/Documentation.aspx" class="btn btn-primary btn-lg">Learn how to use the software &raquo;</a></p>
+        <p><a href="/Documentation.aspx" class="btn btn-primary btn-lg">Learn how to use the software &raquo;</a></p>
     </div>
     
     <div class="row">
