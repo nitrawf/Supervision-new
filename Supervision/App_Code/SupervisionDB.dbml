@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SupervisionDB" Class="SupervisionDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=darezikvit.com;Initial Catalog=SupervisionDB;Persist Security Info=True;User ID=darezik" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DefaultConnection" Provider="System.Data.SqlClient" />
+  <Table Name="darezik.Designations" Member="Designations">
+    <Type Name="Designation">
+      <Column Name="DesignationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Role" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MorningSlot" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="StaffID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Staff_Designation" Member="Staff" ThisKey="StaffID" OtherKey="StaffID" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="darezik.Staff" Member="Staffs">
+    <Type Name="Staff">
+      <Column Name="StaffID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmployeeCode" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="TypeOfStaff" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MiddleName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Department" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="Designation" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="Staff_Designation" Member="Designations" ThisKey="StaffID" OtherKey="StaffID" Type="Designation" />
+      <Association Name="Staff_RoomAssignment" Member="RoomAssignments" ThisKey="StaffID" OtherKey="StaffID" Type="RoomAssignment" />
+      <Association Name="Staff_Exception" Member="Exceptions" ThisKey="StaffID" OtherKey="StaffID" Type="Exception" />
+    </Type>
+  </Table>
+  <Table Name="darezik.ExaminationRooms" Member="ExaminationRooms">
+    <Type Name="ExaminationRoom">
+      <Column Name="RoomID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoomNumber" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MorningSlot" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="ExaminationRoom_RoomAssignment" Member="RoomAssignments" ThisKey="RoomID" OtherKey="RoomID" Type="RoomAssignment" />
+    </Type>
+  </Table>
+  <Table Name="darezik.Exceptions" Member="Exceptions">
+    <Type Name="Exception">
+      <Column Name="ExpectionID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BreifReason" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MorningSlot" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="StaffID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GrantedByUserName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="GrantedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Staff_Exception" Member="Staff" ThisKey="StaffID" OtherKey="StaffID" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="darezik.Roles" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoleName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="darezik.RoomAssignment" Member="RoomAssignments">
+    <Type Name="RoomAssignment">
+      <Column Name="AssignmentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoomID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MorningSlot" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AssignmentDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Staff_RoomAssignment" Member="Staff" ThisKey="StaffID" OtherKey="StaffID" Type="Staff" IsForeignKey="true" />
+      <Association Name="ExaminationRoom_RoomAssignment" Member="ExaminationRoom" ThisKey="RoomID" OtherKey="RoomID" Type="ExaminationRoom" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

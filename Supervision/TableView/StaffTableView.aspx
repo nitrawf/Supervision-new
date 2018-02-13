@@ -2,7 +2,7 @@
 
 <asp:Content ID="StaffTableViewContent" ContentPlaceHolderID="MainContent" runat="Server">
     <div style="padding: 10px">
-        <asp:GridView ID="StaffGridView" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="StaffID" DataSourceID="StaffDataSource" ForeColor="Black" GridLines="Vertical" Width="100%">
+        <asp:GridView ID="StaffGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="StaffID" DataSourceID="StaffDataSource" ForeColor="Black" GridLines="Vertical" Width="100%">
             <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />

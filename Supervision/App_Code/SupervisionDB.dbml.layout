@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SupervisionDB">
+  <DataContextMoniker Name="/SupervisionDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="55be0cec-a47c-4f49-a590-e84320ac5778" absoluteBounds="3.25, 0.5, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/SupervisionDBDataContext/Designation" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bee2a1fe-99d5-4cae-9337-103075e4dd07" absoluteBounds="3.265, 0.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="218493b4-81f2-4383-899d-59efb8e93617" absoluteBounds="0.5, 1.875, 2, 2.3478011067708331">
+      <DataClassMoniker Name="/SupervisionDBDataContext/Staff" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4eb4a29e-732e-4d95-9d97-0b22edf206f9" absoluteBounds="0.51500000000000012, 2.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5e69a78d-8ba6-411f-b52a-f225c8011af9" absoluteBounds="6, 3.25, 2, 1.7708968098958318">
+      <DataClassMoniker Name="/SupervisionDBDataContext/ExaminationRoom" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4bf4c103-aa59-4fe5-810c-2a19509482d7" absoluteBounds="6.015, 3.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="53958be8-8bd4-438e-9305-4dcef605406c" absoluteBounds="3.25, 5.5, 2, 2.5401025390625014">
+      <DataClassMoniker Name="/SupervisionDBDataContext/Exception" />
+      <nestedChildShapes>
+        <elementListCompartment Id="725dd2e0-a845-429b-97a2-c1f9708d49e8" absoluteBounds="3.265, 5.9600000000000009, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6408b32e-80b5-42b6-b27e-680950fb456f" absoluteBounds="6, 0.875, 2, 1.193992513020834">
+      <DataClassMoniker Name="/SupervisionDBDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f3404446-aa5e-428a-887c-039a01c6cbbe" absoluteBounds="6.015, 1.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8c12e210-114f-4cd0-b5ca-39b41079d099" absoluteBounds="3.25, 3.25, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/SupervisionDBDataContext/RoomAssignment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba4e55fd-db6b-4788-ba06-d123b4be474d" absoluteBounds="3.2649999999999997, 3.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 2.16909912109375); (3.25 : 2.16909912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SupervisionDBDataContext/Staff/Staff_Designation" />
+      <nodes>
+        <classShapeMoniker Id="218493b4-81f2-4383-899d-59efb8e93617" />
+        <classShapeMoniker Id="55be0cec-a47c-4f49-a590-e84320ac5778" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 3.73640055338542); (3.25 : 3.73640055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SupervisionDBDataContext/Staff/Staff_RoomAssignment" />
+      <nodes>
+        <classShapeMoniker Id="218493b4-81f2-4383-899d-59efb8e93617" />
+        <classShapeMoniker Id="8c12e210-114f-4cd0-b5ca-39b41079d099" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6 : 4.13544840494792); (5.25 : 4.13544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SupervisionDBDataContext/ExaminationRoom/ExaminationRoom_RoomAssignment" />
+      <nodes>
+        <classShapeMoniker Id="5e69a78d-8ba6-411f-b52a-f225c8011af9" />
+        <classShapeMoniker Id="8c12e210-114f-4cd0-b5ca-39b41079d099" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.5 : 4.22280110677083); (1.5 : 6.77005126953125); (3.25 : 6.77005126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/SupervisionDBDataContext/Staff/Staff_Exception" />
+      <nodes>
+        <classShapeMoniker Id="218493b4-81f2-4383-899d-59efb8e93617" />
+        <classShapeMoniker Id="53958be8-8bd4-438e-9305-4dcef605406c" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

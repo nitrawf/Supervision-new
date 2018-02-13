@@ -4,13 +4,11 @@
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="DesignationID" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical">
         <AlternatingRowStyle BackColor="#CCCCCC" />
         <Columns>
-            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
-            <asp:BoundField DataField="DesignationID" HeaderText="DesignationID" ReadOnly="True" SortExpression="DesignationID" />
+            <asp:BoundField DataField="DesignationID" HeaderText="DesignationID" ReadOnly="True" SortExpression="DesignationID" InsertVisible="False" />
             <asp:BoundField DataField="Role" HeaderText="Role" SortExpression="Role" />
             <asp:CheckBoxField DataField="MorningSlot" HeaderText="MorningSlot" SortExpression="MorningSlot" />
             <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
             <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />
-            <asp:BoundField DataField="Length" HeaderText="Length" SortExpression="Length" />
             <asp:BoundField DataField="StaffID" HeaderText="StaffID" SortExpression="StaffID" />
         </Columns>
         <FooterStyle BackColor="#CCCCCC" />
