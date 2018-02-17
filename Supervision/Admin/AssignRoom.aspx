@@ -118,7 +118,7 @@
         <ContentTemplate>
                     <div class="row">
                         <div class="col-md-12" style="color: red;">
-                            <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataSourceID="JoinedDataSource" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
+                            <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataSourceID="JoinedDataSource" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False" AllowSorting="True">
                                 <AlternatingRowStyle BackColor="#CCCCCC" />
                                 <Columns>
                                     <asp:CommandField ShowDeleteButton="True" />
