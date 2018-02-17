@@ -5,11 +5,11 @@
         <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataSourceID="StaffBusySql" ForeColor="Black" GridLines="Vertical">
             <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
-                <asp:CommandField ShowSelectButton="True" />
-                <asp:BoundField DataField="StaffID" HeaderText="StaffID" SortExpression="StaffID" />
+                <asp:BoundField DataField="reason" HeaderText="reason" SortExpression="reason" />
+                <asp:CheckBoxField DataField="MorningSlot" HeaderText="MorningSlot" SortExpression="MorningSlot" />
                 <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
                 <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />
-                <asp:BoundField DataField="BreifReason" HeaderText="BreifReason" SortExpression="BreifReason" />
+                <asp:BoundField DataField="StaffID" HeaderText="StaffID" SortExpression="StaffID" />
             </Columns>
             <FooterStyle BackColor="#CCCCCC" />
             <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
