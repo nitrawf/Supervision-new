@@ -23,6 +23,7 @@ public partial class Admin_AssignDesignation : System.Web.UI.Page
     {
         DropDownList RoleDownList = FormView1.FindControl("RoleDownList") as DropDownList;
         CheckBox MorningSlotCheckBox = FormView1.FindControl("MorningSlotCheckBox") as CheckBox;
+        if(RoleDownList != null && MorningSlotCheckBox!= null)
         using (var db = new SupervisionDBDataContext())
         {
             List<DateTime> startDates = new List<DateTime>();
@@ -84,7 +85,44 @@ public partial class Admin_AssignDesignation : System.Web.UI.Page
     {
         //Makes sure that the staff member is not busy for this time period/position/slot.
         //TODO : Once the exception tables are ready
-        arguments.IsValid = true;
+
+        DropDownList StaffDropDownList = FormView1.FindControl("StaffDropDownList") as DropDownList;
+
+
+        Calendar Calendar1 = FormView1.FindControl("Calendar1") as Calendar;
+        Calendar Calendar2 = FormView1.FindControl("Calendar2") as Calendar;
+
+        if (Calendar1.SelectedDate != new DateTime() && Calendar2.SelectedDate != null && Calendar1.SelectedDate <= Calendar2.SelectedDate)
+        {
+            using (var db = new SupervisionDBDataContext())
+            {
+
+                var staffIsBusy = db.StaffBusies.Where(
+                    x =>
+                            x.StaffID.ToString() == StaffDropDownList.SelectedValue &&
+                            (x.EndDate >= Calendar1.SelectedDate &&
+                            x.StartDate <= Calendar2.SelectedDate)).ToList();   //Making sure ranges do not overlap
+                if(staffIsBusy.Count == 0)
+                {
+                    arguments.IsValid = true;
+                }else
+                {
+                    arguments.IsValid = false;
+                    var errorMessage = "The staff member is unavailiable for the date range.";
+                    staffIsBusy.ForEach(x =>
+                    {
+                        errorMessage += String.Format("<br /> {0} from {1:dd/MM/yyyy} to {2:dd/MM/yyyy}", x.reason , x.StartDate, x.EndDate);
+                    });
+                    StaffValidator.ErrorMessage = errorMessage;
+                }
+
+
+            }
+        }
+        else
+        {
+            arguments.IsValid = true;
+        }
 
     }
     protected void DesignationDataSource_OnInserted(Object sender, SqlDataSourceStatusEventArgs e)
@@ -108,6 +146,7 @@ public partial class Admin_AssignDesignation : System.Web.UI.Page
     {
         if (e.Day.Date < DateTime.Now)
         {
+            e.Day.IsSelectable = false;
             e.Cell.Enabled = false;
             e.Cell.ForeColor = Color.DarkGray;
         }

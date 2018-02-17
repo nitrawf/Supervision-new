@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SupervisionDB">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.875" name="SupervisionDB">
   <DataContextMoniker Name="/SupervisionDBDataContext" />
   <nestedChildShapes>
     <classShape Id="55be0cec-a47c-4f49-a590-e84320ac5778" absoluteBounds="3.25, 0.5, 2, 1.9631982421875005">
@@ -45,26 +45,32 @@
         <classShapeMoniker Id="55be0cec-a47c-4f49-a590-e84320ac5778" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 3.73640055338542); (3.25 : 3.73640055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.5 : 3.73640055338542); (3.25 : 3.73640055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SupervisionDBDataContext/Staff/Staff_RoomAssignment" />
       <nodes>
         <classShapeMoniker Id="218493b4-81f2-4383-899d-59efb8e93617" />
         <classShapeMoniker Id="8c12e210-114f-4cd0-b5ca-39b41079d099" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6 : 4.13544840494792); (5.25 : 4.13544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(6 : 4.13544840494792); (5.25 : 4.13544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SupervisionDBDataContext/ExaminationRoom/ExaminationRoom_RoomAssignment" />
       <nodes>
         <classShapeMoniker Id="5e69a78d-8ba6-411f-b52a-f225c8011af9" />
         <classShapeMoniker Id="8c12e210-114f-4cd0-b5ca-39b41079d099" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.5 : 4.22280110677083); (1.5 : 6.77005126953125); (3.25 : 6.77005126953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(1.5 : 4.22280110677083); (1.5 : 6.77005126953125); (3.25 : 6.77005126953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/SupervisionDBDataContext/Staff/Staff_Exception" />
       <nodes>
         <classShapeMoniker Id="218493b4-81f2-4383-899d-59efb8e93617" />
         <classShapeMoniker Id="53958be8-8bd4-438e-9305-4dcef605406c" />
       </nodes>
     </associationConnector>
+    <classShape Id="e0d9197f-0342-4c56-8f2a-736e9c54b7e0" absoluteBounds="3.125, 8.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/SupervisionDBDataContext/StaffBusy" />
+      <nestedChildShapes>
+        <elementListCompartment Id="25779ff6-a88c-4b76-93e5-9c7711aabdbf" absoluteBounds="3.1400000000000006, 9.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

@@ -146,7 +146,11 @@
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" />
                     <asp:BoundField DataField="Role" HeaderText="Role" SortExpression="Role" />
-                    <asp:CheckBoxField DataField="MorningSlot" HeaderText="Morning Slot?" SortExpression="MorningSlot" />
+                    <asp:CheckBoxField DataField="MorningSlot" HeaderText="MorningSlot" SortExpression="MorningSlot" />
+                    <asp:TemplateField HeaderText="Slot" SortExpression="MorningSlot" >
+                        <ItemTemplate><%# (Boolean.Parse(Eval("MorningSlot").ToString())) ? "Morning" : "Evening" %></ItemTemplate>
+                    </asp:TemplateField>
+
                     <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" DataFormatString = "{0:dd/MM/yyyy}"/>
                     <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate" DataFormatString = "{0:dd/MM/yyyy}"/>
                     <asp:BoundField DataField="StaffDetails" HeaderText="StaffDetails" ReadOnly="True" SortExpression="StaffDetails" />

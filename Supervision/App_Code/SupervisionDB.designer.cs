@@ -123,6 +123,14 @@ public partial class SupervisionDBDataContext : System.Data.Linq.DataContext
 			return this.GetTable<RoomAssignment>();
 		}
 	}
+	
+	public System.Data.Linq.Table<StaffBusy> StaffBusies
+	{
+		get
+		{
+			return this.GetTable<StaffBusy>();
+		}
+	}
 }
 
 [global::System.Data.Linq.Mapping.TableAttribute(Name="darezik.Designations")]
@@ -372,9 +380,9 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<Designation> _Designations;
 	
-	private EntitySet<RoomAssignment> _RoomAssignments;
-	
 	private EntitySet<Exception> _Exceptions;
+	
+	private EntitySet<RoomAssignment> _RoomAssignments;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -401,8 +409,8 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 	public Staff()
 	{
 		this._Designations = new EntitySet<Designation>(new Action<Designation>(this.attach_Designations), new Action<Designation>(this.detach_Designations));
-		this._RoomAssignments = new EntitySet<RoomAssignment>(new Action<RoomAssignment>(this.attach_RoomAssignments), new Action<RoomAssignment>(this.detach_RoomAssignments));
 		this._Exceptions = new EntitySet<Exception>(new Action<Exception>(this.attach_Exceptions), new Action<Exception>(this.detach_Exceptions));
+		this._RoomAssignments = new EntitySet<RoomAssignment>(new Action<RoomAssignment>(this.attach_RoomAssignments), new Action<RoomAssignment>(this.detach_RoomAssignments));
 		OnCreated();
 	}
 	
@@ -579,19 +587,6 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_RoomAssignment", Storage="_RoomAssignments", ThisKey="StaffID", OtherKey="StaffID")]
-	public EntitySet<RoomAssignment> RoomAssignments
-	{
-		get
-		{
-			return this._RoomAssignments;
-		}
-		set
-		{
-			this._RoomAssignments.Assign(value);
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Exception", Storage="_Exceptions", ThisKey="StaffID", OtherKey="StaffID")]
 	public EntitySet<Exception> Exceptions
 	{
@@ -602,6 +597,19 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 		set
 		{
 			this._Exceptions.Assign(value);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_RoomAssignment", Storage="_RoomAssignments", ThisKey="StaffID", OtherKey="StaffID")]
+	public EntitySet<RoomAssignment> RoomAssignments
+	{
+		get
+		{
+			return this._RoomAssignments;
+		}
+		set
+		{
+			this._RoomAssignments.Assign(value);
 		}
 	}
 	
@@ -637,18 +645,6 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 		entity.Staff = null;
 	}
 	
-	private void attach_RoomAssignments(RoomAssignment entity)
-	{
-		this.SendPropertyChanging();
-		entity.Staff = this;
-	}
-	
-	private void detach_RoomAssignments(RoomAssignment entity)
-	{
-		this.SendPropertyChanging();
-		entity.Staff = null;
-	}
-	
 	private void attach_Exceptions(Exception entity)
 	{
 		this.SendPropertyChanging();
@@ -656,6 +652,18 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 	
 	private void detach_Exceptions(Exception entity)
+	{
+		this.SendPropertyChanging();
+		entity.Staff = null;
+	}
+	
+	private void attach_RoomAssignments(RoomAssignment entity)
+	{
+		this.SendPropertyChanging();
+		entity.Staff = this;
+	}
+	
+	private void detach_RoomAssignments(RoomAssignment entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = null;
@@ -1424,6 +1432,105 @@ public partial class RoomAssignment : INotifyPropertyChanging, INotifyPropertyCh
 		if ((this.PropertyChanged != null))
 		{
 			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="darezik.StaffBusy")]
+public partial class StaffBusy
+{
+	
+	private string _reason;
+	
+	private System.Nullable<bool> _MorningSlot;
+	
+	private System.Nullable<System.DateTime> _StartDate;
+	
+	private System.Nullable<System.DateTime> _EndDate;
+	
+	private System.Nullable<int> _StaffID;
+	
+	public StaffBusy()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_reason", DbType="VarChar(267)")]
+	public string reason
+	{
+		get
+		{
+			return this._reason;
+		}
+		set
+		{
+			if ((this._reason != value))
+			{
+				this._reason = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MorningSlot", DbType="Bit")]
+	public System.Nullable<bool> MorningSlot
+	{
+		get
+		{
+			return this._MorningSlot;
+		}
+		set
+		{
+			if ((this._MorningSlot != value))
+			{
+				this._MorningSlot = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="Date")]
+	public System.Nullable<System.DateTime> StartDate
+	{
+		get
+		{
+			return this._StartDate;
+		}
+		set
+		{
+			if ((this._StartDate != value))
+			{
+				this._StartDate = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="Date")]
+	public System.Nullable<System.DateTime> EndDate
+	{
+		get
+		{
+			return this._EndDate;
+		}
+		set
+		{
+			if ((this._EndDate != value))
+			{
+				this._EndDate = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffID", DbType="Int")]
+	public System.Nullable<int> StaffID
+	{
+		get
+		{
+			return this._StaffID;
+		}
+		set
+		{
+			if ((this._StaffID != value))
+			{
+				this._StaffID = value;
+			}
 		}
 	}
 }

@@ -22,8 +22,8 @@
       <Column Name="Department" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="Designation" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Association Name="Staff_Designation" Member="Designations" ThisKey="StaffID" OtherKey="StaffID" Type="Designation" />
-      <Association Name="Staff_RoomAssignment" Member="RoomAssignments" ThisKey="StaffID" OtherKey="StaffID" Type="RoomAssignment" />
       <Association Name="Staff_Exception" Member="Exceptions" ThisKey="StaffID" OtherKey="StaffID" Type="Exception" />
+      <Association Name="Staff_RoomAssignment" Member="RoomAssignments" ThisKey="StaffID" OtherKey="StaffID" Type="RoomAssignment" />
     </Type>
   </Table>
   <Table Name="darezik.ExaminationRooms" Member="ExaminationRooms">
@@ -65,6 +65,15 @@
       <Column Name="AssignmentDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Association Name="Staff_RoomAssignment" Member="Staff" ThisKey="StaffID" OtherKey="StaffID" Type="Staff" IsForeignKey="true" />
       <Association Name="ExaminationRoom_RoomAssignment" Member="ExaminationRoom" ThisKey="RoomID" OtherKey="RoomID" Type="ExaminationRoom" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="darezik.StaffBusy" Member="StaffBusies">
+    <Type Name="StaffBusy">
+      <Column Name="reason" Type="System.String" DbType="VarChar(267)" CanBeNull="true" />
+      <Column Name="MorningSlot" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="StaffID" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
