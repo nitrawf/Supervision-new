@@ -83,4 +83,16 @@ public partial class Admin_AssignRoom : System.Web.UI.Page
 
     }
 
+    protected void AssignmentDataSource_OnInserted(Object sender, SqlDataSourceStatusEventArgs e)
+    {
+        System.Data.Common.DbCommand command = e.Command;
+
+        GridView GridView1Code = UpdatePanel2.FindControl("GridView1") as GridView;
+        GridView1Code.DataBind();
+        ScriptManager.RegisterClientScriptBlock(GridView1Code, this.GetType(), "AlertMsg", "<script language='javascript'>$('html, body').animate({ scrollTop: $(document).height() }, 1000);</script>", false);
+        SetDatesWhichCannotBeUsed();
+
+        UpdatePanel2.Update();
+    }
+
 }

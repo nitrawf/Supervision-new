@@ -4,7 +4,7 @@
     <div class="jumbotron">
         <h1>Assign Room</h1>
     </div>
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="AssignmentID" DataSourceID="RoomsDataSource" DefaultMode="Insert">
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="AssignmentID" DataSourceID="AssignmentDataSource" DefaultMode="Insert">
         <InsertItemTemplate>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
@@ -73,7 +73,7 @@
              </asp:UpdatePanel>
         </InsertItemTemplate>
     </asp:FormView>
-    <asp:SqlDataSource ID="AssignmentDataSource" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" DeleteCommand="DELETE FROM [RoomAssignment] WHERE [AssignmentID] = @original_AssignmentID AND (([RoomID] = @original_RoomID) OR ([RoomID] IS NULL AND @original_RoomID IS NULL)) AND (([StaffID] = @original_StaffID) OR ([StaffID] IS NULL AND @original_StaffID IS NULL)) AND (([MorningSlot] = @original_MorningSlot) OR ([MorningSlot] IS NULL AND @original_MorningSlot IS NULL)) AND (([AssignmentDate] = @original_AssignmentDate) OR ([AssignmentDate] IS NULL AND @original_AssignmentDate IS NULL))" InsertCommand="INSERT INTO [RoomAssignment] ([RoomID], [StaffID], [MorningSlot], [AssignmentDate]) VALUES (@RoomID, @StaffID, @MorningSlot, @AssignmentDate)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [RoomAssignment] ORDER BY [RoomID]" UpdateCommand="UPDATE [RoomAssignment] SET [RoomID] = @RoomID, [StaffID] = @StaffID, [MorningSlot] = @MorningSlot, [AssignmentDate] = @AssignmentDate WHERE [AssignmentID] = @original_AssignmentID AND (([RoomID] = @original_RoomID) OR ([RoomID] IS NULL AND @original_RoomID IS NULL)) AND (([StaffID] = @original_StaffID) OR ([StaffID] IS NULL AND @original_StaffID IS NULL)) AND (([MorningSlot] = @original_MorningSlot) OR ([MorningSlot] IS NULL AND @original_MorningSlot IS NULL)) AND (([AssignmentDate] = @original_AssignmentDate) OR ([AssignmentDate] IS NULL AND @original_AssignmentDate IS NULL))">
+    <asp:SqlDataSource ID="AssignmentDataSource" runat="server" OnInserted="AssignmentDataSource_OnInserted" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" DeleteCommand="DELETE FROM [RoomAssignment] WHERE [AssignmentID] = @original_AssignmentID AND (([RoomID] = @original_RoomID) OR ([RoomID] IS NULL AND @original_RoomID IS NULL)) AND (([StaffID] = @original_StaffID) OR ([StaffID] IS NULL AND @original_StaffID IS NULL)) AND (([MorningSlot] = @original_MorningSlot) OR ([MorningSlot] IS NULL AND @original_MorningSlot IS NULL)) AND (([AssignmentDate] = @original_AssignmentDate) OR ([AssignmentDate] IS NULL AND @original_AssignmentDate IS NULL))" InsertCommand="INSERT INTO [RoomAssignment] ([RoomID], [StaffID], [MorningSlot], [AssignmentDate]) VALUES (@RoomID, @StaffID, @MorningSlot, @AssignmentDate)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [RoomAssignment] ORDER BY [RoomID]" UpdateCommand="UPDATE [RoomAssignment] SET [RoomID] = @RoomID, [StaffID] = @StaffID, [MorningSlot] = @MorningSlot, [AssignmentDate] = @AssignmentDate WHERE [AssignmentID] = @original_AssignmentID AND (([RoomID] = @original_RoomID) OR ([RoomID] IS NULL AND @original_RoomID IS NULL)) AND (([StaffID] = @original_StaffID) OR ([StaffID] IS NULL AND @original_StaffID IS NULL)) AND (([MorningSlot] = @original_MorningSlot) OR ([MorningSlot] IS NULL AND @original_MorningSlot IS NULL)) AND (([AssignmentDate] = @original_AssignmentDate) OR ([AssignmentDate] IS NULL AND @original_AssignmentDate IS NULL))">
         <DeleteParameters>
             <asp:Parameter Name="original_AssignmentID" Type="Int32" />
             <asp:Parameter Name="original_RoomID" Type="Int32" />
@@ -113,6 +113,7 @@
 
  from [darezik].[Staff]
            order by firstname"></asp:SqlDataSource>
+
     <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
                     <div class="row">
