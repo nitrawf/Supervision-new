@@ -64,6 +64,7 @@ public partial class Admin_AssignRoom : System.Web.UI.Page
         {
             e.Cell.Enabled = false;
             e.Cell.ForeColor = Color.DarkGray;
+            e.Day.IsSelectable = false;
         }
 
 
