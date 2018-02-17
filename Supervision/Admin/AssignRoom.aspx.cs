@@ -75,13 +75,7 @@ public partial class Admin_AssignRoom : System.Web.UI.Page
             e.Cell.ForeColor = Color.DarkGray;
         }
     }
-    protected void ServerValidationStaff(object source, ServerValidateEventArgs arguments)
-    {
-        //Makes sure that the staff member is not busy for this time period/position/slot.
-        //TODO : Once the exception tables are ready
-        arguments.IsValid = true;
-
-    }
+    
 
     protected void AssignmentDataSource_OnInserted(Object sender, SqlDataSourceStatusEventArgs e)
     {
@@ -93,6 +87,51 @@ public partial class Admin_AssignRoom : System.Web.UI.Page
         SetDatesWhichCannotBeUsed();
 
         UpdatePanel2.Update();
+    }
+
+    protected void ServerValidationStaff(object source, ServerValidateEventArgs arguments)
+    {
+        //Makes sure that the staff member is not busy for this time period/position/slot.
+        //TODO : Once the exception tables are ready
+
+        DropDownList StaffDropDownList = FormView1.FindControl("StaffDropDownList") as DropDownList;
+
+
+        Calendar Calendar1 = FormView1.FindControl("Calendar1") as Calendar;
+
+        if (Calendar1.SelectedDate != new DateTime())
+        { 
+            using (var db = new SupervisionDBDataContext())
+            {
+
+                var staffIsBusy = db.StaffBusies.Where(
+                    x =>
+                            x.StaffID.ToString() == StaffDropDownList.SelectedValue &&
+                            (x.EndDate >= Calendar1.SelectedDate &&
+                            x.StartDate <= Calendar1.SelectedDate)).ToList();   //Making sure ranges do not overlap
+                if (staffIsBusy.Count == 0)
+                {
+                    arguments.IsValid = true;
+                }
+                else
+                {
+                    arguments.IsValid = false;
+                    var errorMessage = "The staff member is unavailiable for the date range.";
+                    staffIsBusy.ForEach(x =>
+                    {
+                        errorMessage += String.Format("<br /> {0} from {1:dd/MM/yyyy} to {2:dd/MM/yyyy}", x.reason, x.StartDate, x.EndDate);
+                    });
+                    StaffValidator.ErrorMessage = errorMessage;
+                }
+
+
+            }
+        }
+        else
+        {
+            arguments.IsValid = true;
+        }
+
     }
 
 }
