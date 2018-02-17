@@ -60,7 +60,7 @@ public partial class Admin_AssignRoom : System.Web.UI.Page
 
     private static void EnableOrDisableDay(DayRenderEventArgs e)
     {
-        if (e.Day.Date < DateTime.Now)
+        if (e.Day.Date < DateTime.Now.AddDays(-1))
         {
             e.Cell.Enabled = false;
             e.Cell.ForeColor = Color.DarkGray;

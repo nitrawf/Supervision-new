@@ -21,7 +21,7 @@
                             Morning(checked)/Evening(unchecked):
                         </div>
                         <div class="col-md-6">
-                            <asp:CheckBox ID="MorningSlotCheckBox" runat="server" Checked='<%# Bind("MorningSlot") %>' OnSelectedIndexChanged="FreeDatesChanged" AutoPostBack="true" />
+                            <asp:CheckBox ID="MorningSlotCheckBox" runat="server" Checked='<%# Bind("MorningSlot") %>' OnCheckedChanged="FreeDatesChanged" AutoPostBack="true" />
                         </div>
                     </div>
                     <div class="row">

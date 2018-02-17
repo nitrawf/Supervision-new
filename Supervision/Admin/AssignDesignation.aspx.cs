@@ -143,7 +143,7 @@ public partial class Admin_AssignDesignation : System.Web.UI.Page
 
     private static void EnableOrDisableDay(DayRenderEventArgs e)
     {
-        if (e.Day.Date < DateTime.Now)
+        if (e.Day.Date < DateTime.Now.AddDays(-1))
         {
             e.Day.IsSelectable = false;
             e.Cell.Enabled = false;
