@@ -146,7 +146,6 @@
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" />
                     <asp:BoundField DataField="Role" HeaderText="Role" SortExpression="Role" />
-                    <asp:CheckBoxField DataField="MorningSlot" HeaderText="MorningSlot" SortExpression="MorningSlot" />
                     <asp:TemplateField HeaderText="Slot" SortExpression="MorningSlot" >
                         <ItemTemplate><%# (Boolean.Parse(Eval("MorningSlot").ToString())) ? "Morning" : "Evening" %></ItemTemplate>
                     </asp:TemplateField>
