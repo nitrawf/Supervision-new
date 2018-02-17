@@ -13,7 +13,7 @@
                             Room to be assigned:
                         </div>
                         <div class="col-md-6">
-                            <asp:DropDownList ID="RoomDownList" SelectedValue='<%# Bind("Room") %>' DataSourceID="RoomsDataSource" DataTextField="RoomNumber" DataValueField="RoomNumber" runat="server" Width="100%" AutoPostBack="true"></asp:DropDownList>
+                            <asp:DropDownList ID="RoomDownList" SelectedValue='<%# Bind("RoomID") %>' DataSourceID="RoomsDataSource" DataTextField="RoomNumber" DataValueField="RoomID" runat="server" Width="100%" OnSelectedIndexChanged="FreeDatesChanged" AutoPostBack="true"></asp:DropDownList>
                         </div>
                     </div>
                     <div class="row">
@@ -21,7 +21,7 @@
                             Morning(checked)/Evening(unchecked):
                         </div>
                         <div class="col-md-6">
-                            <asp:CheckBox ID="MorningSlotCheckBox" runat="server" Checked='<%# Bind("MorningSlot") %>' AutoPostBack="true" />
+                            <asp:CheckBox ID="MorningSlotCheckBox" runat="server" Checked='<%# Bind("MorningSlot") %>' OnSelectedIndexChanged="FreeDatesChanged" AutoPostBack="true" />
                         </div>
                     </div>
                     <div class="row">
@@ -29,7 +29,7 @@
                             Date of the assignment:
                         </div>
                         <div class="col-md-6">
-                            <asp:Calendar ID="Calendar1" SelectedDate='<%# Bind("Date") %>' runat="server" ></asp:Calendar>
+                            <asp:Calendar ID="Calendar1" SelectedDate='<%# Bind("AssignmentDate") %>' OnDayRender="Calendar_DayRender" runat="server" ></asp:Calendar>
                         </div>
                     </div>
                     <div class="row">
@@ -47,7 +47,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12" style="color: red;">
-                     
+                           <asp:CustomValidator ID="StaffValidator" runat="server" ErrorMessage="The staff member is unavailiable for the date range." OnServerValidate="ServerValidationStaff"></asp:CustomValidator>
                         </div>
                     </div>
                 </ContentTemplate>
@@ -120,13 +120,14 @@
                             <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataSourceID="JoinedDataSource" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False">
                                 <AlternatingRowStyle BackColor="#CCCCCC" />
                                 <Columns>
-                                    <asp:CommandField ShowDeleteButton="True" ShowSelectButton="True" />
-                                    <asp:BoundField DataField="AssignmentID" HeaderText="AssignmentID" InsertVisible="False" ReadOnly="True" SortExpression="AssignmentID" />
-                                    <asp:BoundField DataField="RoomID" HeaderText="RoomID" SortExpression="RoomID" />
-                                    <asp:BoundField DataField="RoomNumber" HeaderText="RoomNumber" SortExpression="RoomNumber" />
-                                    <asp:CheckBoxField DataField="MorningSlot" HeaderText="MorningSlot" SortExpression="MorningSlot" />
-                                    <asp:BoundField DataField="StaffID" HeaderText="StaffID" InsertVisible="False" ReadOnly="True" SortExpression="StaffID" />
-                                    <asp:BoundField DataField="StaffDetails" HeaderText="StaffDetails" ReadOnly="True" SortExpression="StaffDetails" />
+                                    <asp:CommandField ShowDeleteButton="True" />
+                                    <asp:BoundField DataField="AssignmentID" HeaderText="Assignment ID" InsertVisible="False" ReadOnly="True" SortExpression="AssignmentID" />
+                                    <asp:BoundField DataField="RoomID" HeaderText="Room ID" SortExpression="RoomID" />
+                                    <asp:BoundField DataField="RoomNumber" HeaderText="Room Number" SortExpression="RoomNumber" />
+                                    <asp:BoundField DataField="AssignmentDate" HeaderText="Assignment Date" SortExpression="AssignmentDate" />
+                                    <asp:CheckBoxField DataField="MorningSlot" HeaderText="Morning Slot" SortExpression="MorningSlot" />
+                                    <asp:BoundField DataField="StaffID" HeaderText="Staff ID" InsertVisible="False" ReadOnly="True" SortExpression="StaffID" />
+                                    <asp:BoundField DataField="StaffDetails" HeaderText="Staff Details" ReadOnly="True" SortExpression="StaffDetails" />
                                 </Columns>
                                 <FooterStyle BackColor="#CCCCCC" />
                                 <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -143,6 +144,7 @@
        [AssignmentID]
       ,RoomAssignment.[RoomID]
       ,[RoomNumber]
+      ,[AssignmentDate]
       ,RoomAssignment.[MorningSlot]
       ,[Staff].[StaffID]
 	  ,concat([FirstName],' ',[LastName], ' - ',[Department], ',',[Designation], ' | ',[TypeOfStaff]) as StaffDetails
