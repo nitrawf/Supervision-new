@@ -10,63 +10,43 @@
     
     <div class="row">
         <div class="col-md-4">
-            <h2>Staff</h2>
+            <h2>Assign Designations</h2>
             <p>
-             Add or remove a staff member. You can also view a list of all staff members.
+                Assign Designation to a staff member for a particular date or a date range.
             </p>
             <p>
-                <a class="btn btn-default" href="TableView/StaffTableView.aspx">Go &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Designations</h2>
-            <p>
-                Assign a staff member to a designation for a time period and shift. 
-            </p>
-            <p>
-                <a class="btn btn-default" href="TableView/DesignationsTableView.aspx">Go &raquo;</a>
+                <a class="btn btn-default" href="Admin/AssignDesignation.aspx">Go &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Block Assignment</h2>
+            <h2>Assign Rooms</h2>
             <p>
-                Assign a staff member to an exam room for duty on a day and shift.
+                Assign a room to a staff member for a particular date.
             </p>
             <p>
-                <a class="btn btn-default" href="TableView/RoomAssignmentTableView.aspx">Go &raquo;</a>
-            </p>
-        </div>
-    </div>
-    
-    
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Exemptions</h2>
-            <p>
-             Exempt a staff member from examination duty for a time period.
-            </p>
-            <p>
-                <a class="btn btn-default" href="TableView/ExceptionsTableView.aspx">Go &raquo;</a>
+                <a class="btn btn-default" href="Admin/AssignRoom.aspx">Go &raquo;</a>
             </p>
         </div>
-        <div class="col-md-4">
-            <h2>Exam blocks</h2>
+		        <div class="col-md-4">
+            <h2>Assign Exemptions</h2>
             <p>
-                Change the list of available blocs for the examination.
-            </p>
-            <p>
-                <a class="btn btn-default" href="TableView/ExaminationRoomsTableView.aspx">Go &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Queries</h2>
-            <p>
-                View metrics and overall statistics. Generate reports here.
-            </p>
+				Assign exemptions to a staff member if required.
+			</p>
             <p>
                 <a class="btn btn-default" href="#">Go &raquo;</a>
             </p>
         </div>
     </div>
 
+	<div class="row">
+		<div class="col-md-4">
+            <h2>Reports</h2>
+            <p>
+                Reports about already assigned entities.
+            </p>
+            <p>
+                <a class="btn btn-default" href="Reports/Default.aspx">Go &raquo;</a>
+            </p>
+        </div>
+	</div>
 </asp:Content>
