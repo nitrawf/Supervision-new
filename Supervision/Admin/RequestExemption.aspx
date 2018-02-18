@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="RequestExemption.aspx.cs" Inherits="Admin_Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="RequestExemption.aspx.cs" Inherits="Admin_RequestExemption" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <div class="jumbotron">
@@ -6,7 +6,7 @@
     </div>
 
     <br />
-    <asp:FormView ID="FormView1" runat="server" DataSourceID="ExceptionsDataSource" DefaultMode="Insert">
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="ExceptionID" DataSourceID="ExceptionsDataSource" DefaultMode="Insert">
         <InsertItemTemplate>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
@@ -16,7 +16,7 @@
                             The staff member to be exempted :</div>
                         <div class="col-md-6">
                             
-                            <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="StaffDataSource" DataTextField="aggregate" DataValueField="StaffID">
+                            <asp:DropDownList ID="StaffDownList" runat="server" DataSourceID="StaffDataSource" DataTextField="aggregate" DataValueField="StaffID">
                             </asp:DropDownList>
                             
                         </div>
@@ -160,19 +160,24 @@
            order by firstname"></asp:SqlDataSource>
     <asp:SqlDataSource ID="StaffBusyDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [StaffBusy] ORDER BY [StaffID]"></asp:SqlDataSource>
     <br />
-    <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ExpectionID" DataSourceID="ExceptionsDataSource">
-        <Columns>
-            <asp:CommandField ShowDeleteButton="True" />
-            <asp:BoundField DataField="ExpectionID" HeaderText="ExpectionID" InsertVisible="False" ReadOnly="True" SortExpression="ExpectionID" />
-            <asp:BoundField DataField="BreifReason" HeaderText="BreifReason" SortExpression="BreifReason" />
-            <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
-            <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />
-            <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
-            <asp:CheckBoxField DataField="MorningSlot" HeaderText="MorningSlot" SortExpression="MorningSlot" />
-            <asp:BoundField DataField="StaffID" HeaderText="StaffID" SortExpression="StaffID" />
-            <asp:BoundField DataField="GrantedByUserName" HeaderText="GrantedByUserName" SortExpression="GrantedByUserName" />
-            <asp:BoundField DataField="GrantedDate" HeaderText="GrantedDate" SortExpression="GrantedDate" />
-        </Columns>
-    </asp:GridView>
-</asp:Content>
+    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+        <ContentTemplate>
+            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ExpectionID" DataSourceID="ExceptionsDataSource">
+                <Columns>
+                    <asp:CommandField ShowDeleteButton="True" />
+                    <asp:BoundField DataField="ExpectionID" HeaderText="ExceptionID" InsertVisible="False" ReadOnly="True" SortExpression="ExpectionID" />
+                    <asp:BoundField DataField="BreifReason" HeaderText="BreifReason" SortExpression="BreifReason" />
+                    <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
+                    <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                    <asp:CheckBoxField DataField="MorningSlot" HeaderText="Morning Slot" SortExpression="MorningSlot" />
+                    <asp:BoundField DataField="StaffID" HeaderText="StaffID" SortExpression="StaffID" />
+                    <asp:BoundField DataField="GrantedByUserName" HeaderText="GrantedByUserName" SortExpression="GrantedByUserName" />
+                    <asp:BoundField DataField="GrantedDate" HeaderText="GrantedDate" SortExpression="GrantedDate" />
+                </Columns>
+            </asp:GridView>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <br />
+    </asp:Content>
 
