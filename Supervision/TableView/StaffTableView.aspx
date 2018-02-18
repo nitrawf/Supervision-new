@@ -1,17 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="StaffTableView.aspx.cs" Inherits="TableView_Staff" %>
 
 <asp:Content ID="StaffTableViewContent" ContentPlaceHolderID="MainContent" runat="Server">
-    <div style="padding: 10px">
-        <asp:GridView ID="StaffGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="StaffID" DataSourceID="StaffDataSource" ForeColor="Black" GridLines="Vertical" Width="100%">
+        <asp:GridView ID="StaffGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="StaffID" DataSourceID="StaffDataSource" ForeColor="Black" GridLines="Vertical">
             <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                <asp:BoundField DataField="StaffID" HeaderText="Staff ID" ReadOnly="True" SortExpression="StaffID" />
-                <asp:BoundField DataField="EmployeeCode" HeaderText="Employee Code" SortExpression="EmployeeCode" />
-                <asp:BoundField DataField="TypeOfStaff" HeaderText="Type Of Staff" SortExpression="TypeOfStaff" />
-                <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="FirstName" />
-                <asp:BoundField DataField="MiddleName" HeaderText="Middle Name" SortExpression="MiddleName" />
-                <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="LastName" />
+                <asp:BoundField DataField="StaffID" HeaderText="StaffID" ReadOnly="True" SortExpression="StaffID" InsertVisible="False" />
+                <asp:BoundField DataField="EmployeeCode" HeaderText="EmployeeCode" SortExpression="EmployeeCode" />
+                <asp:BoundField DataField="TypeOfStaff" HeaderText="TypeOfStaff" SortExpression="TypeOfStaff" />
+                <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
+                <asp:BoundField DataField="MiddleName" HeaderText="MiddleName" SortExpression="MiddleName" />
+                <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
                 <asp:BoundField DataField="Department" HeaderText="Department" SortExpression="Department" />
                 <asp:BoundField DataField="Designation" HeaderText="Designation" SortExpression="Designation" />
             </Columns>
@@ -24,8 +23,7 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#383838" />
         </asp:GridView>
-    </div>
-    <asp:SqlDataSource ID="StaffDataSource" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" DeleteCommand="DELETE FROM [Staff] WHERE [StaffID] = @original_StaffID AND (([EmployeeCode] = @original_EmployeeCode) OR ([EmployeeCode] IS NULL AND @original_EmployeeCode IS NULL)) AND (([TypeOfStaff] = @original_TypeOfStaff) OR ([TypeOfStaff] IS NULL AND @original_TypeOfStaff IS NULL)) AND (([FirstName] = @original_FirstName) OR ([FirstName] IS NULL AND @original_FirstName IS NULL)) AND (([MiddleName] = @original_MiddleName) OR ([MiddleName] IS NULL AND @original_MiddleName IS NULL)) AND (([LastName] = @original_LastName) OR ([LastName] IS NULL AND @original_LastName IS NULL)) AND (([Department] = @original_Department) OR ([Department] IS NULL AND @original_Department IS NULL)) AND (([Designation] = @original_Designation) OR ([Designation] IS NULL AND @original_Designation IS NULL))" InsertCommand="INSERT INTO [Staff] ([StaffID], [EmployeeCode], [TypeOfStaff], [FirstName], [MiddleName], [LastName], [Department], [Designation]) VALUES (@StaffID, @EmployeeCode, @TypeOfStaff, @FirstName, @MiddleName, @LastName, @Department, @Designation)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Staff] ORDER BY [StaffID]" UpdateCommand="UPDATE [Staff] SET [EmployeeCode] = @EmployeeCode, [TypeOfStaff] = @TypeOfStaff, [FirstName] = @FirstName, [MiddleName] = @MiddleName, [LastName] = @LastName, [Department] = @Department, [Designation] = @Designation WHERE [StaffID] = @original_StaffID AND (([EmployeeCode] = @original_EmployeeCode) OR ([EmployeeCode] IS NULL AND @original_EmployeeCode IS NULL)) AND (([TypeOfStaff] = @original_TypeOfStaff) OR ([TypeOfStaff] IS NULL AND @original_TypeOfStaff IS NULL)) AND (([FirstName] = @original_FirstName) OR ([FirstName] IS NULL AND @original_FirstName IS NULL)) AND (([MiddleName] = @original_MiddleName) OR ([MiddleName] IS NULL AND @original_MiddleName IS NULL)) AND (([LastName] = @original_LastName) OR ([LastName] IS NULL AND @original_LastName IS NULL)) AND (([Department] = @original_Department) OR ([Department] IS NULL AND @original_Department IS NULL)) AND (([Designation] = @original_Designation) OR ([Designation] IS NULL AND @original_Designation IS NULL))">
+    <asp:SqlDataSource ID="StaffDataSource" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" DeleteCommand="DELETE FROM [Staff] WHERE [StaffID] = @original_StaffID AND (([EmployeeCode] = @original_EmployeeCode) OR ([EmployeeCode] IS NULL AND @original_EmployeeCode IS NULL)) AND (([TypeOfStaff] = @original_TypeOfStaff) OR ([TypeOfStaff] IS NULL AND @original_TypeOfStaff IS NULL)) AND (([FirstName] = @original_FirstName) OR ([FirstName] IS NULL AND @original_FirstName IS NULL)) AND (([MiddleName] = @original_MiddleName) OR ([MiddleName] IS NULL AND @original_MiddleName IS NULL)) AND (([LastName] = @original_LastName) OR ([LastName] IS NULL AND @original_LastName IS NULL)) AND (([Department] = @original_Department) OR ([Department] IS NULL AND @original_Department IS NULL)) AND (([Designation] = @original_Designation) OR ([Designation] IS NULL AND @original_Designation IS NULL))" InsertCommand="INSERT INTO [Staff] ([EmployeeCode], [TypeOfStaff], [FirstName], [MiddleName], [LastName], [Department], [Designation]) VALUES (@EmployeeCode, @TypeOfStaff, @FirstName, @MiddleName, @LastName, @Department, @Designation)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Staff]" UpdateCommand="UPDATE [Staff] SET [EmployeeCode] = @EmployeeCode, [TypeOfStaff] = @TypeOfStaff, [FirstName] = @FirstName, [MiddleName] = @MiddleName, [LastName] = @LastName, [Department] = @Department, [Designation] = @Designation WHERE [StaffID] = @original_StaffID AND (([EmployeeCode] = @original_EmployeeCode) OR ([EmployeeCode] IS NULL AND @original_EmployeeCode IS NULL)) AND (([TypeOfStaff] = @original_TypeOfStaff) OR ([TypeOfStaff] IS NULL AND @original_TypeOfStaff IS NULL)) AND (([FirstName] = @original_FirstName) OR ([FirstName] IS NULL AND @original_FirstName IS NULL)) AND (([MiddleName] = @original_MiddleName) OR ([MiddleName] IS NULL AND @original_MiddleName IS NULL)) AND (([LastName] = @original_LastName) OR ([LastName] IS NULL AND @original_LastName IS NULL)) AND (([Department] = @original_Department) OR ([Department] IS NULL AND @original_Department IS NULL)) AND (([Designation] = @original_Designation) OR ([Designation] IS NULL AND @original_Designation IS NULL))">
         <DeleteParameters>
             <asp:Parameter Name="original_StaffID" Type="Int32" />
             <asp:Parameter Name="original_EmployeeCode" Type="String" />
@@ -37,7 +35,6 @@
             <asp:Parameter Name="original_Designation" Type="String" />
         </DeleteParameters>
         <InsertParameters>
-            <asp:Parameter Name="StaffID" Type="Int32" />
             <asp:Parameter Name="EmployeeCode" Type="String" />
             <asp:Parameter Name="TypeOfStaff" Type="String" />
             <asp:Parameter Name="FirstName" Type="String" />

@@ -15,7 +15,7 @@
              Add or remove a staff member. You can also view a list of all staff members.
             </p>
             <p>
-                <a class="btn btn-default" href="/TableView/Staff/TableView.aspx">Go &raquo;</a>
+                <a class="btn btn-default" runat = "server" href="~/TableView/StaffTableView.aspx">Go &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -24,7 +24,7 @@
                 Assign a staff member to a designation for a time period and shift. 
             </p>
             <p>
-                <a class="btn btn-default" href="/TableView/Designations/TableView.aspx">Go &raquo;</a>
+                <a class="btn btn-default" runat = "server" href="~/TableView/DesignationsTableView.aspx">Go &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -33,7 +33,7 @@
                 Assign a staff member to an exam room for duty on a day and shift.
             </p>
             <p>
-                <a class="btn btn-default" href="/TableView/RoomAssignment/TableView.aspx">Go &raquo;</a>
+                <a class="btn btn-default" runat = "server" href="~/TableView/RoomAssignmentTableView.aspx">Go &raquo;</a>
             </p>
         </div>
     </div>
@@ -43,10 +43,10 @@
         <div class="col-md-4">
             <h2>Exemptions</h2>
             <p>
-             Exempt a staff member from examination duty for a time period.
+                Exempt a staff member from examination duty.
             </p>
             <p>
-                <a class="btn btn-default" href="/TableView/Exceptions/TableView.aspx">Go &raquo;</a>
+                <a class="btn btn-default" runat = "server" href="~/TableView/ExceptionsTableView.aspx">Go &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -55,7 +55,7 @@
                 Change the list of available blocs for the examination.
             </p>
             <p>
-                <a class="btn btn-default" href="/TableView/ExaminationRooms/TableView.aspx">Go &raquo;</a>
+                <a class="btn btn-default" runat = "server" href="~/TableView/ExaminationRoomsTableView.aspx">Go &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -64,7 +64,7 @@
                 View metrics and overall statistics. Generate reports here.
             </p>
             <p>
-                <a class="btn btn-default" href="#">Go &raquo;</a>
+                <a class="btn btn-default" runat = "server" href="~/Reports/">Go &raquo;</a>
             </p>
         </div>
     </div>

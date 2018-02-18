@@ -1,9 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ExceptionsTableView.aspx.cs" Inherits="TableView_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="ExpectionID" DataSourceID="ExceptionsDataSource" ForeColor="Black" GridLines="Vertical">
+    <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="ExpectionID" DataSourceID="ExceptionsDataSource" ForeColor="Black" GridLines="Vertical">
 		<AlternatingRowStyle BackColor="#CCCCCC" />
 		<Columns>
+			<asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
 			<asp:BoundField DataField="ExpectionID" HeaderText="ExpectionID" ReadOnly="True" SortExpression="ExpectionID" InsertVisible="False" />
 			<asp:BoundField DataField="BreifReason" HeaderText="BreifReason" SortExpression="BreifReason" />
 			<asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
