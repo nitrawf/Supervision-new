@@ -13,8 +13,8 @@
                 <Columns>
                     <asp:BoundField DataField="ExpectionID" HeaderText="Expection ID" ReadOnly="True" SortExpression="ExpectionID" />
                     <asp:BoundField DataField="BreifReason" HeaderText="Breif Reason" SortExpression="BreifReason" />
-                    <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" />
-                    <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate" />
+                    <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" DataFormatString="{0:dd/MM/yyyy}"/>
+                    <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate" DataFormatString="{0:dd/MM/yyyy}"/>
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                     <asp:TemplateField HeaderText="Slot" SortExpression="MorningSlot" >
                         <ItemTemplate><%#Eval("MorningSlot").ToString().Equals("")? "Both" :((Boolean.Parse(Eval("MorningSlot").ToString())) ? "Morning" : "Evening")  %></ItemTemplate>
