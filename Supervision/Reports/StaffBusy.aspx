@@ -12,8 +12,8 @@
                     <asp:BoundField DataField="reason" HeaderText="Reason" SortExpression="reason" >
 
                     </asp:BoundField>
-                    <asp:TemplateField HeaderText="MorningSlot" SortExpression="MorningSlot" >
-                        <ItemTemplate><%# (Boolean.Parse(Eval("MorningSlot").ToString())) ? "Morning" : "Evening" %></ItemTemplate>
+                    <asp:TemplateField HeaderText="Slot" SortExpression="MorningSlot" >
+                        <ItemTemplate><%#Eval("MorningSlot").ToString().Equals("")? "Both" :((Boolean.Parse(Eval("MorningSlot").ToString())) ? "Morning" : "Evening")  %></ItemTemplate>
                     </asp:TemplateField>
                     <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" DataFormatString="{0:dd/MM/yyyy}"/>
                     <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate" DataFormatString="{0:dd/MM/yyyy}"/>
