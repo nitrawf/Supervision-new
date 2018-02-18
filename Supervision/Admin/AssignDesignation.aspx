@@ -147,7 +147,7 @@
                     <asp:CommandField ShowDeleteButton="True" />
                     <asp:BoundField DataField="Role" HeaderText="Role" SortExpression="Role" />
                     <asp:TemplateField HeaderText="Slot" SortExpression="MorningSlot" >
-                        <ItemTemplate><%# (Boolean.Parse(Eval("MorningSlot").ToString())) ? "Morning" : "Evening" %></ItemTemplate>
+                        <ItemTemplate><%#Eval("MorningSlot").ToString().Equals("")? "Both" :((Boolean.Parse(Eval("MorningSlot").ToString())) ? "Morning" : "Evening")  %></ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" DataFormatString = "{0:dd/MM/yyyy}"/>
