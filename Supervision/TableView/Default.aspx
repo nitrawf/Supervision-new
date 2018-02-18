@@ -3,8 +3,8 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>Supervision</h1>
-        <p class="lead">Supervision is a homegrown solution to an institute's invigilation needs built by the students.</p>
+        <h1>Table Views</h1>
+        <p class="lead">This is a developer area. Beware modifying items if you don't know what they are.</p>
         <p><a href="/Documentation.aspx" class="btn btn-primary btn-lg">Learn how to use the software &raquo;</a></p>
     </div>
     

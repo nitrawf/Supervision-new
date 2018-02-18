@@ -3,10 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     
     <br />
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="ExpectionID" DataSourceID="TeachersExemptedSql" ForeColor="Black" GridLines="Vertical">
+    <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="ExpectionID" DataSourceID="TeachersExemptedSql" ForeColor="Black" GridLines="Vertical">
         <AlternatingRowStyle BackColor="#CCCCCC" />
         <Columns>
-            <asp:CommandField ShowSelectButton="True" />
             <asp:BoundField DataField="ExpectionID" HeaderText="ExpectionID" ReadOnly="True" SortExpression="ExpectionID" />
             <asp:BoundField DataField="BreifReason" HeaderText="BreifReason" SortExpression="BreifReason" />
             <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />

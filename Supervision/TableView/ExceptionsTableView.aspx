@@ -24,9 +24,9 @@
 		<SortedDescendingCellStyle BackColor="#CAC9C9" />
 		<SortedDescendingHeaderStyle BackColor="#383838" />
 	</asp:GridView>
-	<asp:SqlDataSource ID="ExceptionsDataSource" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" DeleteCommand="DELETE FROM [Exceptions] WHERE [ExceptionID] = @original_ExceptionID AND (([BreifReason] = @original_BreifReason) OR ([BreifReason] IS NULL AND @original_BreifReason IS NULL)) AND (([StartDate] = @original_StartDate) OR ([StartDate] IS NULL AND @original_StartDate IS NULL)) AND (([EndDate] = @original_EndDate) OR ([EndDate] IS NULL AND @original_EndDate IS NULL)) AND (([Description] = @original_Description) OR ([Description] IS NULL AND @original_Description IS NULL)) AND (([MorningSlot] = @original_MorningSlot) OR ([MorningSlot] IS NULL AND @original_MorningSlot IS NULL)) AND (([StaffID] = @original_StaffID) OR ([StaffID] IS NULL AND @original_StaffID IS NULL)) AND (([GrantedByUserName] = @original_GrantedByUserName) OR ([GrantedByUserName] IS NULL AND @original_GrantedByUserName IS NULL)) AND (([GrantedDate] = @original_GrantedDate) OR ([GrantedDate] IS NULL AND @original_GrantedDate IS NULL))" InsertCommand="INSERT INTO [Exceptions] ([ExceptionID], [BreifReason], [StartDate], [EndDate], [Description], [MorningSlot], [StaffID], [GrantedByUserName], [GrantedDate]) VALUES (@ExceptionID, @BreifReason, @StartDate, @EndDate, @Description, @MorningSlot, @StaffID, @GrantedByUserName, @GrantedDate)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Exceptions]" UpdateCommand="UPDATE [Exceptions] SET [BreifReason] = @BreifReason, [StartDate] = @StartDate, [EndDate] = @EndDate, [Description] = @Description, [MorningSlot] = @MorningSlot, [StaffID] = @StaffID, [GrantedByUserName] = @GrantedByUserName, [GrantedDate] = @GrantedDate WHERE [ExceptionID] = @original_ExceptionID AND (([BreifReason] = @original_BreifReason) OR ([BreifReason] IS NULL AND @original_BreifReason IS NULL)) AND (([StartDate] = @original_StartDate) OR ([StartDate] IS NULL AND @original_StartDate IS NULL)) AND (([EndDate] = @original_EndDate) OR ([EndDate] IS NULL AND @original_EndDate IS NULL)) AND (([Description] = @original_Description) OR ([Description] IS NULL AND @original_Description IS NULL)) AND (([MorningSlot] = @original_MorningSlot) OR ([MorningSlot] IS NULL AND @original_MorningSlot IS NULL)) AND (([StaffID] = @original_StaffID) OR ([StaffID] IS NULL AND @original_StaffID IS NULL)) AND (([GrantedByUserName] = @original_GrantedByUserName) OR ([GrantedByUserName] IS NULL AND @original_GrantedByUserName IS NULL)) AND (([GrantedDate] = @original_GrantedDate) OR ([GrantedDate] IS NULL AND @original_GrantedDate IS NULL))">
+	<asp:SqlDataSource ID="ExceptionsDataSource" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" DeleteCommand="DELETE FROM [Exceptions] WHERE [ExpectionID] = @original_ExpectionID AND (([BreifReason] = @original_BreifReason) OR ([BreifReason] IS NULL AND @original_BreifReason IS NULL)) AND (([StartDate] = @original_StartDate) OR ([StartDate] IS NULL AND @original_StartDate IS NULL)) AND (([EndDate] = @original_EndDate) OR ([EndDate] IS NULL AND @original_EndDate IS NULL)) AND (([Description] = @original_Description) OR ([Description] IS NULL AND @original_Description IS NULL)) AND (([MorningSlot] = @original_MorningSlot) OR ([MorningSlot] IS NULL AND @original_MorningSlot IS NULL)) AND (([StaffID] = @original_StaffID) OR ([StaffID] IS NULL AND @original_StaffID IS NULL)) AND (([GrantedByUserName] = @original_GrantedByUserName) OR ([GrantedByUserName] IS NULL AND @original_GrantedByUserName IS NULL)) AND (([GrantedDate] = @original_GrantedDate) OR ([GrantedDate] IS NULL AND @original_GrantedDate IS NULL))" InsertCommand="INSERT INTO [Exceptions] ([BreifReason], [StartDate], [EndDate], [Description], [MorningSlot], [StaffID], [GrantedByUserName], [GrantedDate]) VALUES (@BreifReason, @StartDate, @EndDate, @Description, @MorningSlot, @StaffID, @GrantedByUserName, @GrantedDate)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Exceptions]" UpdateCommand="UPDATE [Exceptions] SET [BreifReason] = @BreifReason, [StartDate] = @StartDate, [EndDate] = @EndDate, [Description] = @Description, [MorningSlot] = @MorningSlot, [StaffID] = @StaffID, [GrantedByUserName] = @GrantedByUserName, [GrantedDate] = @GrantedDate WHERE [ExpectionID] = @original_ExpectionID AND (([BreifReason] = @original_BreifReason) OR ([BreifReason] IS NULL AND @original_BreifReason IS NULL)) AND (([StartDate] = @original_StartDate) OR ([StartDate] IS NULL AND @original_StartDate IS NULL)) AND (([EndDate] = @original_EndDate) OR ([EndDate] IS NULL AND @original_EndDate IS NULL)) AND (([Description] = @original_Description) OR ([Description] IS NULL AND @original_Description IS NULL)) AND (([MorningSlot] = @original_MorningSlot) OR ([MorningSlot] IS NULL AND @original_MorningSlot IS NULL)) AND (([StaffID] = @original_StaffID) OR ([StaffID] IS NULL AND @original_StaffID IS NULL)) AND (([GrantedByUserName] = @original_GrantedByUserName) OR ([GrantedByUserName] IS NULL AND @original_GrantedByUserName IS NULL)) AND (([GrantedDate] = @original_GrantedDate) OR ([GrantedDate] IS NULL AND @original_GrantedDate IS NULL))">
 		<DeleteParameters>
-			<asp:Parameter Name="original_ExceptionID" Type="Int32" />
+			<asp:Parameter Name="original_ExpectionID" Type="Int32" />
 			<asp:Parameter Name="original_BreifReason" Type="String" />
 			<asp:Parameter DbType="Date" Name="original_StartDate" />
 			<asp:Parameter DbType="Date" Name="original_EndDate" />
@@ -37,15 +37,14 @@
 			<asp:Parameter DbType="Date" Name="original_GrantedDate" />
 		</DeleteParameters>
 		<InsertParameters>
-			<asp:Parameter Name="ExceptionID" Type="Int32" />
 			<asp:Parameter Name="BreifReason" Type="String" />
-			<asp:Parameter DbType="Date" Name="StartDate" />
+			<asp:Parameter Name="StartDate" DbType="Date" />
 			<asp:Parameter DbType="Date" Name="EndDate" />
 			<asp:Parameter Name="Description" Type="String" />
 			<asp:Parameter Name="MorningSlot" Type="Boolean" />
 			<asp:Parameter Name="StaffID" Type="Int32" />
 			<asp:Parameter Name="GrantedByUserName" Type="String" />
-			<asp:Parameter DbType="Date" Name="GrantedDate" />
+			<asp:Parameter Name="GrantedDate" DbType="Date" />
 		</InsertParameters>
 		<UpdateParameters>
 			<asp:Parameter Name="BreifReason" Type="String" />
@@ -56,7 +55,7 @@
 			<asp:Parameter Name="StaffID" Type="Int32" />
 			<asp:Parameter Name="GrantedByUserName" Type="String" />
 			<asp:Parameter DbType="Date" Name="GrantedDate" />
-			<asp:Parameter Name="original_ExceptionID" Type="Int32" />
+			<asp:Parameter Name="original_ExpectionID" Type="Int32" />
 			<asp:Parameter Name="original_BreifReason" Type="String" />
 			<asp:Parameter DbType="Date" Name="original_StartDate" />
 			<asp:Parameter DbType="Date" Name="original_EndDate" />
