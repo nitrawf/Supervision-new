@@ -31,7 +31,8 @@
             <asp:SqlDataSource ID="StaffBusySql" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [StaffBusy]"></asp:SqlDataSource>
          </div>
          <br />
-         <asp:Button class="btn btn-default btn-primary" ID="downloadStaffBusy" runat="server" OnClick="downloadStaffBusy_Click" Text="Download as Excel" />
     </div>
+    <br />
+    <asp:Button class="btn btn-default btn-primary" ID="downloadStaffBusy" runat="server" OnClick="downloadStaffBusy_Click" Text="Download as Excel" />
 </asp:Content>
 
