@@ -15,7 +15,7 @@
              Add or remove a staff member. You can also view a list of all staff members.
             </p>
             <p>
-                <a class="btn btn-default" href="TableView/StaffTableView.aspx">Go &raquo;</a>
+                <a class="btn btn-default" href="/TableView/Staff/TableView.aspx">Go &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -24,7 +24,7 @@
                 Assign a staff member to a designation for a time period and shift. 
             </p>
             <p>
-                <a class="btn btn-default" href="TableView/DesignationsTableView.aspx">Go &raquo;</a>
+                <a class="btn btn-default" href="/TableView/Designations/TableView.aspx">Go &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -33,7 +33,7 @@
                 Assign a staff member to an exam room for duty on a day and shift.
             </p>
             <p>
-                <a class="btn btn-default" href="TableView/RoomAssignmentTableView.aspx">Go &raquo;</a>
+                <a class="btn btn-default" href="/TableView/RoomAssignment/TableView.aspx">Go &raquo;</a>
             </p>
         </div>
     </div>
@@ -46,7 +46,7 @@
              Exempt a staff member from examination duty for a time period.
             </p>
             <p>
-                <a class="btn btn-default" href="TableView/ExceptionsTableView.aspx">Go &raquo;</a>
+                <a class="btn btn-default" href="/TableView/Exceptions/TableView.aspx">Go &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -55,7 +55,7 @@
                 Change the list of available blocs for the examination.
             </p>
             <p>
-                <a class="btn btn-default" href="TableView/ExaminationRoomsTableView.aspx">Go &raquo;</a>
+                <a class="btn btn-default" href="/TableView/ExaminationRooms/TableView.aspx">Go &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">

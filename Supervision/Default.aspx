@@ -33,7 +33,7 @@
 				Assign exemptions to a staff member if required.
 			</p>
             <p>
-                <a class="btn btn-default" href="#">Go &raquo;</a>
+                <a class="btn btn-default" href="Admin/RequestException.aspx">Go &raquo;</a>
             </p>
         </div>
     </div>
@@ -46,6 +46,15 @@
             </p>
             <p>
                 <a class="btn btn-default" href="Reports/Default.aspx">Go &raquo;</a>
+            </p>
+        </div>
+		<div class="col-md-4">
+            <h2>Table Views</h2>
+            <p>
+                For the developers to clean up bad data. 
+            </p>
+            <p>
+                <a class="btn btn-default" href="TableView/Default.aspx">Go &raquo;</a>
             </p>
         </div>
 	</div>
