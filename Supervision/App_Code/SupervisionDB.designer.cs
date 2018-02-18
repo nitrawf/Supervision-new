@@ -131,6 +131,14 @@ public partial class SupervisionDBDataContext : System.Data.Linq.DataContext
 			return this.GetTable<StaffBusy>();
 		}
 	}
+	
+	public System.Data.Linq.Table<Exemption> Exemptions
+	{
+		get
+		{
+			return this.GetTable<Exemption>();
+		}
+	}
 }
 
 [global::System.Data.Linq.Mapping.TableAttribute(Name="darezik.Designations")]
@@ -1530,6 +1538,177 @@ public partial class StaffBusy
 			if ((this._StaffID != value))
 			{
 				this._StaffID = value;
+			}
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="darezik.Exemptions")]
+public partial class Exemption
+{
+	
+	private int _ExpectionID;
+	
+	private string _BreifReason;
+	
+	private System.Nullable<System.DateTime> _StartDate;
+	
+	private System.Nullable<System.DateTime> _EndDate;
+	
+	private string _Description;
+	
+	private System.Nullable<bool> _MorningSlot;
+	
+	private System.Nullable<int> _StaffID;
+	
+	private string _GrantedByUserName;
+	
+	private System.Nullable<System.DateTime> _GrantedDate;
+	
+	public Exemption()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpectionID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+	public int ExpectionID
+	{
+		get
+		{
+			return this._ExpectionID;
+		}
+		set
+		{
+			if ((this._ExpectionID != value))
+			{
+				this._ExpectionID = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BreifReason", DbType="VarChar(250)")]
+	public string BreifReason
+	{
+		get
+		{
+			return this._BreifReason;
+		}
+		set
+		{
+			if ((this._BreifReason != value))
+			{
+				this._BreifReason = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="Date")]
+	public System.Nullable<System.DateTime> StartDate
+	{
+		get
+		{
+			return this._StartDate;
+		}
+		set
+		{
+			if ((this._StartDate != value))
+			{
+				this._StartDate = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="Date")]
+	public System.Nullable<System.DateTime> EndDate
+	{
+		get
+		{
+			return this._EndDate;
+		}
+		set
+		{
+			if ((this._EndDate != value))
+			{
+				this._EndDate = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(250)")]
+	public string Description
+	{
+		get
+		{
+			return this._Description;
+		}
+		set
+		{
+			if ((this._Description != value))
+			{
+				this._Description = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MorningSlot", DbType="Bit")]
+	public System.Nullable<bool> MorningSlot
+	{
+		get
+		{
+			return this._MorningSlot;
+		}
+		set
+		{
+			if ((this._MorningSlot != value))
+			{
+				this._MorningSlot = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffID", DbType="Int")]
+	public System.Nullable<int> StaffID
+	{
+		get
+		{
+			return this._StaffID;
+		}
+		set
+		{
+			if ((this._StaffID != value))
+			{
+				this._StaffID = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GrantedByUserName", DbType="VarChar(100)")]
+	public string GrantedByUserName
+	{
+		get
+		{
+			return this._GrantedByUserName;
+		}
+		set
+		{
+			if ((this._GrantedByUserName != value))
+			{
+				this._GrantedByUserName = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GrantedDate", DbType="Date")]
+	public System.Nullable<System.DateTime> GrantedDate
+	{
+		get
+		{
+			return this._GrantedDate;
+		}
+		set
+		{
+			if ((this._GrantedDate != value))
+			{
+				this._GrantedDate = value;
 			}
 		}
 	}

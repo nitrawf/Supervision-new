@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.875" name="SupervisionDB">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SupervisionDB">
   <DataContextMoniker Name="/SupervisionDBDataContext" />
   <nestedChildShapes>
     <classShape Id="55be0cec-a47c-4f49-a590-e84320ac5778" absoluteBounds="3.25, 0.5, 2, 1.9631982421875005">
@@ -45,7 +45,7 @@
         <classShapeMoniker Id="55be0cec-a47c-4f49-a590-e84320ac5778" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.5 : 3.73640055338542); (3.25 : 3.73640055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 3.73640055338542); (3.25 : 3.73640055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/SupervisionDBDataContext/Staff/Staff_RoomAssignment" />
       <nodes>
         <classShapeMoniker Id="218493b4-81f2-4383-899d-59efb8e93617" />
@@ -66,10 +66,16 @@
         <classShapeMoniker Id="53958be8-8bd4-438e-9305-4dcef605406c" />
       </nodes>
     </associationConnector>
-    <classShape Id="e0d9197f-0342-4c56-8f2a-736e9c54b7e0" absoluteBounds="3.125, 8.875, 2, 1.7708968098958331">
+    <classShape Id="e0d9197f-0342-4c56-8f2a-736e9c54b7e0" absoluteBounds="6, 5.625, 2, 1.7708968098958331">
       <DataClassMoniker Name="/SupervisionDBDataContext/StaffBusy" />
       <nestedChildShapes>
-        <elementListCompartment Id="25779ff6-a88c-4b76-93e5-9c7711aabdbf" absoluteBounds="3.1400000000000006, 9.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="25779ff6-a88c-4b76-93e5-9c7711aabdbf" absoluteBounds="6.0150000000000006, 6.0850000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a85438f4-0215-487c-8c3c-14ef04e8c421" absoluteBounds="8.25, 4.625, 2, 2.5401025390625">
+      <DataClassMoniker Name="/SupervisionDBDataContext/Exemption" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dc0fd78c-b0ab-4c96-9b55-b55caa3d457c" absoluteBounds="8.265, 5.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

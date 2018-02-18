@@ -10,7 +10,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
 { 
     protected void Page_Load(object sender, EventArgs e)
     {
-        static List<Exceptions> dateRangesUsed { get; set; }
+        static List<StaffBusy> dateRangesUsed { get; set; }
         if (!IsPostBack)
         {
             SetDateRangesWhichCannotBeUsed();
