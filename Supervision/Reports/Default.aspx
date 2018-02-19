@@ -10,18 +10,18 @@
     
     <div class="row">
         <div class="col-md-4">
-            <h2>Staff Assignments</h2>
+            <h2>Room Assignments</h2>
             <p>
-				Get the details of the staff assignments which are already done.
+				Get the details of the staff assigned to each room.
             </p>
             <p>
                 <a class="btn btn-default" href="../Reports/StaffAssignedToRoom.aspx">Go &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Assigned Staff</h2>
+            <h2>Staff Assignments</h2>
             <p>
-                Get the list of staff members and other details which are already assigned.
+                Get the list of staff members, what they're doing, and when.
             </p>
             <p>
                 <a class="btn btn-default" href="../Reports/StaffBusy.aspx">Go &raquo;</a>
