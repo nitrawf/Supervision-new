@@ -7,29 +7,37 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 public partial class Admin_RequestExemption : System.Web.UI.Page
-{ 
+{
+    static List<StaffBusy> dateRangesUsed { get; set; }
     protected void Page_Load(object sender, EventArgs e)
     {
-        static List<StaffBusy> dateRangesUsed { get; set; }
         if (!IsPostBack)
         {
             SetDateRangesWhichCannotBeUsed();
+            
+        }
+
+        TextBox GrantedByUserName = FormView1.FindControl("GrantedByUserName") as TextBox;
+        TextBox GrantedDate = FormView1.FindControl("GrantedDate") as TextBox;
+        if (GrantedByUserName != null && GrantedDate != null)
+        {
+            GrantedByUserName.Text = User.Identity.Name;
+            GrantedDate.Text = DateTime.Now.ToString();
         }
     }
 
     private void SetDateRangesWhichCannotBeUsed()
     {
-        DropDownList StaffDownList = FormView1.FindControl("StaffDownList") as DropDownList;
+        DropDownList StaffDropDownList = FormView1.FindControl("StaffDropDownList") as DropDownList;
         CheckBox MorningSlotCheckBox = FormView1.FindControl("MorningSlotCheckBox") as CheckBox;
-        if (StaffDownList != null && MorningSlotCheckBox != null)
+        if (StaffDropDownList != null && MorningSlotCheckBox != null)
             using (var db = new SupervisionDBDataContext())
             {
                 List<DateTime> startDates = new List<DateTime>();
                 List<DateTime> endDates = new List<DateTime>();
 
-                dateRangesUsed = db.Exceptions.Where(
-                x => x.MorningSlot == MorningSlotCheckBox.Checked &&
-                        x.Role == StaffDownList.SelectedValue).ToList();
+                dateRangesUsed = db.StaffBusies.Where(x =>
+                        x.StaffID.ToString() == StaffDropDownList.SelectedValue).ToList();
 
             }
     }
@@ -48,13 +56,29 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
             arguments.IsValid = false;
         }
     }
-
     protected void ServerValidationFilled(object source, ServerValidateEventArgs arguments)
     {
         //Makes sure that the date range has not already been filled for this time period/position/slot.
-        DropDownList StaffDownList = FormView1.FindControl("StaffDownList") as DropDownList;
-        CheckBox MorningSlotCheckBox = FormView1.FindControl("MorningSlotCheckBox") as CheckBox;
+        TextBox txtBriefReason = FormView1.FindControl("txtBriefReason") as TextBox;
 
+        
+
+        if (txtBriefReason.Text.Trim() != "")
+        {
+            arguments.IsValid = true;
+        }
+        else
+        {
+            arguments.IsValid = false;
+        }
+
+    }
+    protected void ServerValidationStaff(object source, ServerValidateEventArgs arguments)
+    {
+        //Makes sure that the staff member is not busy for this time period/position/slot.
+
+        DropDownList StaffDropDownList = FormView1.FindControl("StaffDropDownList") as DropDownList;
+        CheckBox MorningSlotCheckBox = FormView1.FindControl("MorningSlotCheckBox") as CheckBox;
 
         Calendar Calendar1 = FormView1.FindControl("Calendar1") as Calendar;
         Calendar Calendar2 = FormView1.FindControl("Calendar2") as Calendar;
@@ -64,18 +88,35 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
             using (var db = new SupervisionDBDataContext())
             {
 
-                arguments.IsValid = !db.Exceptions.Any(
-                    x => x.MorningSlot == MorningSlotCheckBox.Checked &&
-                            x.Role == StaffDownList.SelectedValue &&
+                var staffIsBusy = db.StaffBusies.Where(
+                    x =>
+                            x.StaffID.ToString() == StaffDropDownList.SelectedValue && x.MorningSlot == MorningSlotCheckBox.Checked &&
                             (x.EndDate >= Calendar1.SelectedDate &&
-                            x.StartDate <= Calendar2.SelectedDate)//Making sure ranges do not overlap
-                );
+                            x.StartDate <= Calendar2.SelectedDate)).ToList();   //Making sure ranges do not overlap
+                if (staffIsBusy.Count == 0)
+                {
+                    arguments.IsValid = true;
+                }
+                else
+                {
+                    arguments.IsValid = false;
+                    var errorMessage = "The staff member is unavailiable for the date range.";
+                    staffIsBusy.ForEach(x =>
+                    {
+                        errorMessage += String.Format("<br /> {0} from {1:dd/MM/yyyy} to {2:dd/MM/yyyy}", x.reason, x.StartDate, x.EndDate);
+                    });
+                    StaffValidator.ErrorMessage = errorMessage;
+                    
+                }
+
+
             }
         }
         else
         {
             arguments.IsValid = true;
         }
+
     }
 
     protected void ExceptionsDataSource_OnInserted(Object sender, SqlDataSourceStatusEventArgs e)
@@ -117,16 +158,16 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
 
     protected void FreeDatesChanged(object sender, EventArgs e)
     {
-        DropDownList StaffDownList = FormView1.FindControl("StaffDownList") as DropDownList;
+        DropDownList StaffDropDownList = FormView1.FindControl("StaffDropDownList") as DropDownList;
         CheckBox MorningSlotCheckBox = FormView1.FindControl("MorningSlotCheckBox") as CheckBox;
         using (var db = new SupervisionDBDataContext())
         {
             List<DateTime> startDates = new List<DateTime>();
             List<DateTime> endDates = new List<DateTime>();
 
-            dateRangesUsed = db.Designations.Where(
+            dateRangesUsed = db.StaffBusies.Where(
             x => x.MorningSlot == MorningSlotCheckBox.Checked &&
-                    x.Role == StaffDownList.SelectedValue).ToList();
+                    x.StaffID.ToString() == StaffDropDownList.SelectedValue).ToList();
 
         }
 
@@ -134,6 +175,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
 
     protected static void ExceptionGranted()
     {
+        /*
         string userName = "";
         if (!IsPost)
         {
@@ -143,5 +185,6 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
             var insertCommand = "INSERT INTO Exceptions (GrantedByUserName,GrantedDate) VALUES(@0,@1)";
             db.Execute(insertCommand, userName, today);
         }
+        */
     }
 }

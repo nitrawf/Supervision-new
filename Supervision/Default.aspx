@@ -33,7 +33,7 @@
 				Assign exemptions to a staff member if required.
 			</p>
             <p>
-                <a class="btn btn-default" href="Admin/RequestException.aspx">Go &raquo;</a>
+                <a class="btn btn-default" href="Admin/RequestExemption.aspx">Go &raquo;</a>
             </p>
         </div>
     </div>

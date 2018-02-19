@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="AssignRoom.aspx.cs" Inherits="Admin_AssignRoom" %>
+﻿<%@ Page Title="Rooms" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="AssignRoom.aspx.cs" Inherits="Admin_AssignRoom" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <div class="jumbotron">
@@ -117,8 +117,8 @@
     <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
                     <div class="row">
-                        <div class="col-md-12" style="color: red;">
-                            <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataSourceID="JoinedDataSource" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False" AllowSorting="True">
+                        <div class="col-md-12">
+                            <asp:GridView ID="GridView1" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataSourceID="JoinedDataSource" ForeColor="Black" GridLines="Vertical" AutoGenerateColumns="False" AllowSorting="True" Width="100%">
                                 <AlternatingRowStyle BackColor="#CCCCCC" />
                                 <Columns>
                                     <asp:CommandField ShowDeleteButton="True" />

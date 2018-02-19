@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="AssignDesignation.aspx.cs" Inherits="Admin_AssignDesignation" %>
+﻿<%@ Page Title="Designations" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="AssignDesignation.aspx.cs" Inherits="Admin_AssignDesignation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="Server">
     <div class="jumbotron">
@@ -140,7 +140,7 @@
     <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
                     <div class="row">
-                        <div class="col-md-12" style="color: red;">
+                        <div class="col-md-12">
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="JoinedDataSource" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" DataKeyNames="DesignationID" Width="100%">
                 <AlternatingRowStyle BackColor="#CCCCCC" />
                 <Columns>
