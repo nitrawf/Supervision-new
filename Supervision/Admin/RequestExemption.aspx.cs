@@ -14,7 +14,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
         if (!IsPostBack)
         {
             SetDateRangesWhichCannotBeUsed();
-            
+
         }
 
         TextBox GrantedByUserName = FormView1.FindControl("GrantedByUserName") as TextBox;
@@ -61,7 +61,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
         //Makes sure that the date range has not already been filled for this time period/position/slot.
         TextBox txtBriefReason = FormView1.FindControl("txtBriefReason") as TextBox;
 
-        
+
 
         if (txtBriefReason.Text.Trim() != "")
         {
@@ -106,7 +106,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
                         errorMessage += String.Format("<br /> {0} from {1:dd/MM/yyyy} to {2:dd/MM/yyyy}", x.reason, x.StartDate, x.EndDate);
                     });
                     StaffValidator.ErrorMessage = errorMessage;
-                    
+
                 }
 
 

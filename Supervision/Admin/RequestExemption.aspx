@@ -6,73 +6,63 @@
     </div>
 
     <br />
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="ExceptionID" DataSourceID="ExemptionsDataSource" DefaultMode="Insert">
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="ExceptionID" DataSourceID="ExceptionsDataSource" DefaultMode="Insert">
         <InsertItemTemplate>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <div class="row">
                         <div class="col-md-6">
-
+                        
                             The staff member to be exempted :</div>
                         <div class="col-md-6">
-
+                            
                             <asp:DropDownList SelectedValue='<%# Bind("StaffID") %>' ID="StaffDropDownList" runat="server" DataSourceID="StaffDataSource" DataTextField="aggregate" DataValueField="StaffID" OnSelectedIndexChanged="FreeDatesChanged" AutoPostBack="true">
                             </asp:DropDownList>
-
+                            
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-12" style="color: red;">
-                            <asp:CustomValidator ID="StaffValidator" runat="server" ErrorMessage="The staff member cannot be exempted for the date range " OnServerValidate="ServerValidationStaff"></asp:CustomValidator>
-                        </div>
-                    </div>
+                    
                     <div class="row">
                         <div class="col-md-6">
-
+                        
                             The slot for which exemption is requested - Morning(checked)/Evening(unchecked):
-
+                        
                         </div>
                         <div class="col-md-6">
-
+                            
                             <asp:CheckBox ID="MorningSlotCheckBox" runat="server" Checked='<%# Bind("MorningSlot") %>' OnCheckedChanged="FreeDatesChanged" AutoPostBack="true" />
-
+                            
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-12" style="color: red;">
-                            <asp:CustomValidator ID="ReasonValidator" runat="server" ErrorMessage="Enter the brief reason for exemption." OnServerValidate="ServerValidationReason"></asp:CustomValidator>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-md-6">
-
+                        
                             The brief reason for exemption :</div>
                         <div class="col-md-6">
-
+                            
                             <asp:TextBox ID="txtBriefReason" runat="server" Text='<%# Bind("BreifReason", "{0}") %>'></asp:TextBox>
-
+                            
                         </div>
                     </div>
-
+                    
                     <div class="row">
                         <div class="col-md-12" style="color: red;">
                             <asp:CustomValidator ID="CustomValidator2" runat="server" ErrorMessage="You need to enter a Brief Reason at least." OnServerValidate="ServerValidationFilled"></asp:CustomValidator>
                         </div>
                     </div>
-
+            
                     <div class="row">
                         <div class="col-md-6">
-
+                        
                             The detailed reason for exemption :</div>
                         <div class="col-md-6">
-
+                            
                             <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Description", "{0}") %>'></asp:TextBox>
-
+                            
                         </div>
                     </div>
-
+                    
                     <div class="row">
                         <div class="col-md-12" style="color: red;">
                             <asp:CustomValidator ID="StaffValidator" runat="server" ErrorMessage="The staff member is unavailiable for the date range." OnServerValidate="ServerValidationStaff"></asp:CustomValidator>
@@ -93,11 +83,6 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12" style="color: red;">
-                            <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="End date should be after the start date." OnServerValidate="ServerValidation"></asp:CustomValidator>
-                        </div>
-                    </div>
-                    <div class="row">
                         <div class="col-md-6">
                             End date of the assignment:
                         </div>
@@ -105,20 +90,20 @@
                             <asp:Calendar ID="Calendar2" SelectedDate='<%# Bind("EndDate") %>' runat="server" OnDayRender="Calendar1_DayRender"></asp:Calendar>
                         </div>
                     </div>
-
-
+                    
+                    
                     <div class="row">
                         <div class="col-md-6">
-                            User granting the assignment :
+                            User granting the assignment : 
                         </div>
                         <div class="col-md-6">
                            <asp:TextBox ID="GrantedByUserName" runat="server" Text='<%# Bind("GrantedByUserName", "{0}") %>' ReadOnly="True" BackColor="LightGray"></asp:TextBox>
                                  </div>
                     </div>
-
+                    
                     <div class="row">
                         <div class="col-md-6">
-                            Date assignment was granted :
+                            Date assignment was granted : 
                         </div>
                         <div class="col-md-6">
                           <asp:TextBox ID="GrantedDate" runat="server" Text='<%# Bind("GrantedDate") %>' ReadOnly="True" BackColor="LightGray"></asp:TextBox>
@@ -193,7 +178,7 @@
             <asp:Parameter DbType="Date" Name="original_GrantedDate" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="StaffDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="Select
+    <asp:SqlDataSource ID="StaffDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="Select 
         StaffID,
 [EmployeeCode]
            ,[TypeOfStaff]
@@ -215,7 +200,8 @@
             <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ExpectionID" DataSourceID="ExceptionsDataSource" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical"  Width="100%">
                 <AlternatingRowStyle BackColor="#CCCCCC" />
                 <Columns>
-                    <asp:BoundField DataField="ExpectionID" HeaderText="ExpectionID" InsertVisible="False" ReadOnly="True" SortExpression="ExpectionID" />
+                    <asp:CommandField ShowDeleteButton="True" />
+                    <asp:BoundField DataField="ExpectionID" HeaderText="ExceptionID" InsertVisible="False" ReadOnly="True" SortExpression="ExpectionID" />
                     <asp:BoundField DataField="BreifReason" HeaderText="BreifReason" SortExpression="BreifReason" />
                     <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
                     <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />
@@ -226,7 +212,7 @@
                     <asp:BoundField DataField="StaffID" HeaderText="StaffID" SortExpression="StaffID" />
                     <asp:BoundField DataField="GrantedByUserName" HeaderText="GrantedByUserName" SortExpression="GrantedByUserName" />
                     <asp:BoundField DataField="GrantedDate" HeaderText="GrantedDate" SortExpression="GrantedDate" />
-
+       
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
                 <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
@@ -243,3 +229,4 @@
     </asp:UpdatePanel>
     <br />
     </asp:Content>
+
