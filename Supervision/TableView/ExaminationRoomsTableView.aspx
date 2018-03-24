@@ -2,6 +2,12 @@
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="MainContent">
 
+	<div class="jumbotron">
+        <h1>Exam Blocks</h1>
+		<p class="lead">Examination hall details.</p>
+    </div>
+
+
     <div class="row">
         <div class="col-md-6">
             <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="RoomID" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical" Height="70px" Width="100%">

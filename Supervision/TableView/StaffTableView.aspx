@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="StaffTableView.aspx.cs" Inherits="TableView_Staff" %>
 
 <asp:Content ID="StaffTableViewContent" ContentPlaceHolderID="MainContent" runat="Server">
+
+	<div class="jumbotron">
+        <h1>Staff</h1>
+		<p class="lead">Add or remove a staff member. You can also view a list of all staff members. </p>
+    </div>
+
         <asp:GridView ID="StaffGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="StaffID" DataSourceID="StaffDataSource" ForeColor="Black" GridLines="Vertical">
             <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
