@@ -92,8 +92,7 @@ public partial class Admin_AssignRoom : System.Web.UI.Page
 
     protected void ServerValidationStaff(object source, ServerValidateEventArgs arguments)
     {
-        //Makes sure that the staff member is not busy for this time period/position/slot.
-        //TODO : Once the exception tables are ready
+  
 
         DropDownList StaffDropDownList = FormView1.FindControl("StaffDropDownList") as DropDownList;
 
