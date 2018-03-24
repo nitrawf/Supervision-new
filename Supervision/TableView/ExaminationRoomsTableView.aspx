@@ -29,10 +29,10 @@
                 <InsertItemTemplate>
                     <div class="row">
                         <div class="col-md-6">
-                            Room Number:
+                            Block Number:
                         </div>
                         <div class="col-md-6">
-                            <asp:TextBox width="100%" ID="RoomNumberTextBox" runat="server" Text='<%# Bind("RoomNumber") %>' />
+                            <asp:TextBox Width="100%" ID="RoomNumberTextBox" runat="server" Text='<%# Bind("RoomNumber") %>' />
                         </div>
                     </div>
                     <div class="row">
@@ -48,7 +48,7 @@
                             Start Date:
                         </div>
                         <div class="col-md-6">
-                            <asp:TextBox width="100%" ID="StartDateTextBox" runat="server" Text='<%# Bind("StartDate") %>' />
+                            <asp:TextBox Width="100%" ID="StartDateTextBox" runat="server" Text='<%# Bind("StartDate") %>' />
                         </div>
                     </div>
                     <div class="row">
@@ -56,22 +56,22 @@
                             End Date:
                         </div>
                         <div class="col-md-6">
-                            <asp:TextBox width="100%" ID="EndDateTextBox" runat="server" Text='<%# Bind("EndDate") %>' />
+                            <asp:TextBox Width="100%" ID="EndDateTextBox" runat="server" Text='<%# Bind("EndDate") %>' />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            </div>
-                        <div class="col-md-3">
-                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-default btn-sm"  />
-                    <br />
-                    <br />
                         </div>
                         <div class="col-md-3">
-                    <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-default btn-sm" />
-                    <br />
-                    <br />
-                             </div>
+                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-default btn-sm" />
+                            <br />
+                            <br />
+                        </div>
+                        <div class="col-md-3">
+                            <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-default btn-sm" />
+                            <br />
+                            <br />
+                        </div>
                     </div>
                 </InsertItemTemplate>
 

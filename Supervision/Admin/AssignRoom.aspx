@@ -1,8 +1,8 @@
-﻿<%@ Page Title="Rooms" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="AssignRoom.aspx.cs" Inherits="Admin_AssignRoom" %>
+﻿<%@ Page Title="Blocks" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="AssignRoom.aspx.cs" Inherits="Admin_AssignRoom" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <div class="jumbotron">
-        <h1>Assign Room</h1>
+        <h1>Assign Block</h1>
     </div>
     <asp:FormView ID="FormView1" runat="server" DataKeyNames="AssignmentID" DataSourceID="AssignmentDataSource" DefaultMode="Insert">
         <InsertItemTemplate>
@@ -10,7 +10,7 @@
                 <ContentTemplate>
                     <div class="row">
                         <div class="col-md-6">
-                            Room to be assigned:
+                            Block to be assigned:
                         </div>
                         <div class="col-md-6">
                             <asp:DropDownList ID="RoomDownList" SelectedValue='<%# Bind("RoomID") %>' DataSourceID="RoomsDataSource" DataTextField="RoomNumber" DataValueField="RoomID" runat="server" Width="100%" OnSelectedIndexChanged="FreeDatesChanged" AutoPostBack="true"></asp:DropDownList>
@@ -57,6 +57,9 @@
                     <br />
                     <div class="row">
                         <div class="col-md-6">
+                            <asp:LinkButton ID="AddARoomButton" runat="server" CausesValidation="False"  PostBackUrl="~/Admin/AddBlock.aspx" Text="Add a new block" CssClass="btn btn-primary btn-lg" />
+                            <br />
+                            <br />
                         </div>
                         <div class="col-md-3">
                             <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-primary btn-lg"  />
@@ -122,8 +125,8 @@
                                 <AlternatingRowStyle BackColor="#CCCCCC" />
                                 <Columns>
                                     <asp:BoundField DataField="AssignmentID" HeaderText="Assignment ID" InsertVisible="False" ReadOnly="True" SortExpression="AssignmentID" />
-                                    <asp:BoundField DataField="RoomID" HeaderText="Room ID" SortExpression="RoomID" />
-                                    <asp:BoundField DataField="RoomNumber" HeaderText="Room Number" SortExpression="RoomNumber" />
+                                    <asp:BoundField DataField="RoomID" HeaderText="Block ID" SortExpression="RoomID" />
+                                    <asp:BoundField DataField="RoomNumber" HeaderText="Block Number" SortExpression="RoomNumber" />
                                     <asp:BoundField DataField="AssignmentDate" HeaderText="Assignment Date" SortExpression="AssignmentDate" />
                                     <asp:TemplateField HeaderText="Slot" SortExpression="MorningSlot" >
                                     <ItemTemplate><%#Eval("MorningSlot").ToString().Equals("")? "Both" :((Boolean.Parse(Eval("MorningSlot").ToString())) ? "Morning" : "Evening")  %></ItemTemplate>

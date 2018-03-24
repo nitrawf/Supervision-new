@@ -39,7 +39,7 @@ public partial class Reports_StaffAssignedToRoom : System.Web.UI.Page
 		HttpResponse httpResponse = Response;
 		httpResponse.Clear();
 		httpResponse.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-		httpResponse.AddHeader("content-disposition", "attachment;filename=\"Staff Assigned To Room.xlsx\"");
+		httpResponse.AddHeader("content-disposition", "attachment;filename=\"Staff Assigned To Block.xlsx\"");
 
 		// Flush the workbook to the Response.OutputStream
 		using (MemoryStream memoryStream = new MemoryStream())
