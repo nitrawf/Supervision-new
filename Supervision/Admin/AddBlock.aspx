@@ -69,8 +69,8 @@
                 <AlternatingRowStyle BackColor="#CCCCCC" />
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                    <asp:BoundField DataField="RoomID" HeaderText="RoomID" ReadOnly="True" SortExpression="RoomID" InsertVisible="False" />
-                    <asp:BoundField DataField="RoomNumber" HeaderText="RoomNumber" SortExpression="RoomNumber" />
+                    <asp:BoundField DataField="RoomID" HeaderText="Block ID" ReadOnly="True" SortExpression="RoomID" InsertVisible="False" />
+                    <asp:BoundField DataField="RoomNumber" HeaderText="Block Number" SortExpression="RoomNumber" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
                 <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />

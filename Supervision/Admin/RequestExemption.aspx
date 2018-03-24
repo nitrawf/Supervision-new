@@ -41,7 +41,7 @@
                             The brief reason for exemption :</div>
                         <div class="col-md-6">
                             
-                            <asp:TextBox ID="txtBriefReason" runat="server" Text='<%# Bind("BreifReason", "{0}") %>'></asp:TextBox>
+                            <asp:TextBox Width="100%" ID="txtBriefReason" runat="server" Text='<%# Bind("BreifReason", "{0}") %>'></asp:TextBox>
                             
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                             The detailed reason for exemption :</div>
                         <div class="col-md-6">
                             
-                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Description", "{0}") %>'></asp:TextBox>
+                            <asp:TextBox Width="100%" ID="TextBox2" runat="server" Text='<%# Bind("Description", "{0}") %>'></asp:TextBox>
                             
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                             User granting the assignment : 
                         </div>
                         <div class="col-md-6">
-                           <asp:TextBox ID="GrantedByUserName" runat="server" Text='<%# Bind("GrantedByUserName", "{0}") %>' ReadOnly="True" BackColor="LightGray"></asp:TextBox>
+                           <asp:TextBox Width="100%" ID="GrantedByUserName" runat="server" Text='<%# Bind("GrantedByUserName", "{0}") %>' ReadOnly="True" BackColor="LightGray"></asp:TextBox>
                                  </div>
                     </div>
                     
@@ -106,7 +106,7 @@
                             Date assignment was granted : 
                         </div>
                         <div class="col-md-6">
-                          <asp:TextBox ID="GrantedDate" runat="server" Text='<%# Bind("GrantedDate") %>' ReadOnly="True" BackColor="LightGray"></asp:TextBox>
+                          <asp:TextBox Width="100%" ID="GrantedDate" runat="server" Text='<%# Bind("GrantedDate") %>' ReadOnly="True" BackColor="LightGray"></asp:TextBox>
                               </div>
                     </div>
 
@@ -120,12 +120,12 @@
                         <div class="col-md-6">
                         </div>
                         <div class="col-md-3">
-                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-primary btn-lg"  />
+                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-default btn-sm" Width="100%"  />
                             <br />
                             <br />
                         </div>
                         <div class="col-md-3">
-                            <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-primary btn-lg" />
+                            <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-default btn-sm" Width="100%" />
                             <br />
                             <br />
                         </div>

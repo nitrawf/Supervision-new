@@ -57,17 +57,17 @@
                     <br />
                     <div class="row">
                         <div class="col-md-6">
-                            <asp:LinkButton ID="AddARoomButton" runat="server" CausesValidation="False"  PostBackUrl="~/Admin/AddBlock.aspx" Text="Add a new block" CssClass="btn btn-primary btn-lg" />
+                            <asp:LinkButton ID="AddARoomButton" runat="server" CausesValidation="False"  PostBackUrl="~/Admin/AddBlock.aspx" Text="Add a new block" CssClass="btn btn-default btn-sm" Width="100%" />
                             <br />
                             <br />
                         </div>
                         <div class="col-md-3">
-                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-primary btn-lg"  />
+                            <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" CssClass="btn btn-default btn-sm" Width="100%"  />
                             <br />
                             <br />
                         </div>
                         <div class="col-md-3">
-                            <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-primary btn-lg" />
+                            <asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" CssClass="btn btn-default btn-sm" Width="100%" />
                             <br />
                             <br />
                         </div>
@@ -102,7 +102,7 @@
             <asp:Parameter DbType="Date" Name="original_AssignmentDate" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource ID="RoomsDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [ExaminationRooms]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="RoomsDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [ExaminationRooms] order by RoomNumber"></asp:SqlDataSource>
     <asp:SqlDataSource ID="StaffDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="Select 
         StaffID,
 [EmployeeCode]
