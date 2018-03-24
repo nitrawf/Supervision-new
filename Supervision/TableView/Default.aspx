@@ -30,7 +30,7 @@
         <div class="col-md-4">
             <h2>Block Assignment</h2>
             <p>
-                Assign a staff member to an exam room for duty on a day and shift.
+                Assign a staff member to an exam block for duty on a day and shift.
             </p>
             <p>
                 <a class="btn btn-default" runat = "server" href="~/TableView/RoomAssignmentTableView.aspx">Go &raquo;</a>

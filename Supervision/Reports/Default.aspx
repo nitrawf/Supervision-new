@@ -10,9 +10,9 @@
     
     <div class="row">
         <div class="col-md-4">
-            <h2>Room Assignments</h2>
+            <h2>Block Assignments</h2>
             <p>
-				Get the details of the staff assigned to each room.
+				Get the details of the staff assigned to each block.
             </p>
             <p>
                 <a class="btn btn-default" href="../Reports/StaffAssignedToRoom.aspx">Go &raquo;</a>
