@@ -59,7 +59,7 @@
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Queries</h2>
+            <h2>Reports</h2>
             <p>
                 View metrics and overall statistics. Generate reports here.
             </p>
