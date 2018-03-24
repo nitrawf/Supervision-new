@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <div class="jumbotron">
         <h1>Busy staff report</h1>
+		<p class="lead">Get the list of staff members, what they're doing, and when. </p>
     </div>
     <div class ="row">
         <div class="col-md-12" style="color: red;">

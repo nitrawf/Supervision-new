@@ -4,6 +4,7 @@
     
     <div class="jumbotron">
         <h1>Staff Exempted from new assignment</h1>
+		<p class="lead">View/Download a list of exempted staff members. </p>
     </div>
 
     <div class ="row">
@@ -47,4 +48,3 @@
     
     <asp:Button class="btn btn-primary btn-default" ID="downloadExcel" runat="server" OnClick="downloadExcel_Click" Text="Download as Excel" />
 </asp:Content>
-

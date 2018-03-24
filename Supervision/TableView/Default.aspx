@@ -52,7 +52,7 @@
         <div class="col-md-4">
             <h2>Exam blocks</h2>
             <p>
-                Change the list of available blocs for the examination.
+                Change the list of available blocks for the examination.
             </p>
             <p>
                 <a class="btn btn-default" runat = "server" href="~/TableView/ExaminationRoomsTableView.aspx">Go &raquo;</a>
