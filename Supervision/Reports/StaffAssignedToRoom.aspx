@@ -1,9 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="StaffAssignedToRoom.aspx.cs" Inherits="Reports_StaffAssignedToRoom" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
-<div class="jumbotron">
-    <h1>Staff assigned to block</h1>
-</div>
+
+	<div class="jumbotron">
+		<h1>Staff assigned to room</h1>
+		<p class="lead">Get the details of the staff assigned to each room. </p>
+	</div>
 
 <div class ="row">
     <div class="col-md-12" style="color: red;">

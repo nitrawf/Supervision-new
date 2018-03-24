@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ExceptionsTableView.aspx.cs" Inherits="TableView_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
+
+	<div class="jumbotron">
+        <h1>Exemptions</h1>
+		<p class="lead">Exempt a staff member from examination duty. </p>
+    </div>
+
     <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="ExpectionID" DataSourceID="ExceptionsDataSource" ForeColor="Black" GridLines="Vertical">
 		<AlternatingRowStyle BackColor="#CCCCCC" />
 		<Columns>
