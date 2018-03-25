@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ExceptionsTableView.aspx.cs" Inherits="TableView_Default" %>
+﻿<%@ Page Title="Exemptions" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ExceptionsTableView.aspx.cs" Inherits="TableView_Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
 

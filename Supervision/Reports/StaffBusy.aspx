@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="StaffBusy.aspx.cs" Inherits="Reports_StaffBusy" %>
+﻿<%@ Page Title="Staff Assignments" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="StaffBusy.aspx.cs" Inherits="Reports_StaffBusy" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     <div class="jumbotron">

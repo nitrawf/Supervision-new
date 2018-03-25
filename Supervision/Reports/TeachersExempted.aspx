@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="TeachersExempted.aspx.cs" Inherits="Reports_TeachersExempted" %>
+﻿<%@ Page Title="View Exemptions" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="TeachersExempted.aspx.cs" Inherits="Reports_TeachersExempted" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
     

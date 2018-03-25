@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="DesignationsTableView.aspx.cs" Inherits="TableView_DesignationsTableView" %>
+﻿<%@ Page Title="Designations" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="DesignationsTableView.aspx.cs" Inherits="TableView_DesignationsTableView" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
 	

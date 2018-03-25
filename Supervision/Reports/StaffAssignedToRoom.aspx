@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="StaffAssignedToRoom.aspx.cs" Inherits="Reports_StaffAssignedToRoom" %>
+﻿<%@ Page Title="Block Assignments" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="StaffAssignedToRoom.aspx.cs" Inherits="Reports_StaffAssignedToRoom" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="StaffTableView.aspx.cs" Inherits="TableView_Staff" %>
+﻿<%@ Page Title="Staff" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="StaffTableView.aspx.cs" Inherits="TableView_Staff" %>
 
 <asp:Content ID="StaffTableViewContent" ContentPlaceHolderID="MainContent" runat="Server">
 
