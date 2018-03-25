@@ -25,12 +25,16 @@
                     <div class="row">
                         <div class="col-md-6">
                         
-                            The slot for which exemption is requested - Morning(checked)/Evening(unchecked):
+                            The slot for which exemption is requested :
                         
                         </div>
                         <div class="col-md-6">
                             
-                            <asp:CheckBox ID="MorningSlotCheckBox" runat="server" Checked='<%# Bind("MorningSlot") %>' OnCheckedChanged="FreeDatesChanged" AutoPostBack="true" />
+                            <asp:DropDownList ID="DropDownList1" runat="server" SelectedValue='<%# Bind("MorningSlot") %>'>
+                                <asp:ListItem Value="0">Morning</asp:ListItem>
+                                <asp:ListItem Value="1">Evening</asp:ListItem>
+                                <asp:ListItem Value="">Both</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
 
@@ -209,8 +213,8 @@
                     <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate" DataFormatString = "{0:dd/MM/yyyy}"/>
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                     <asp:TemplateField HeaderText="Slot" SortExpression="MorningSlot" >
-                                    <ItemTemplate><%#Eval("MorningSlot").ToString().Equals("")? "Both" :((Boolean.Parse(Eval("MorningSlot").ToString())) ? "Morning" : "Evening")  %></ItemTemplate>
-                                    </asp:TemplateField>
+                        <ItemTemplate><%#Eval("MorningSlot").ToString().Equals("")? "Both" :((Boolean.Parse(Eval("MorningSlot").ToString())) ? "Morning" : "Evening")  %></ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="GrantedByUserName" HeaderText="Granted By " SortExpression="GrantedByUserName" />
                     <asp:BoundField DataField="GrantedDate" HeaderText="Granted on Date" SortExpression="GrantedDate" DataFormatString = "{0:dd/MM/yyyy}" />
                     <asp:BoundField DataField="aggregate" HeaderText="Staff Details" ReadOnly="True" SortExpression="aggregate" />
