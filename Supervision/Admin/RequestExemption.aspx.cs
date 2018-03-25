@@ -24,7 +24,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
         if (FormView1.FindControl("GrantedByUserName") is TextBox GrantedByUserName && FormView1.FindControl("GrantedDate") is TextBox GrantedDate)
         {
             GrantedByUserName.Text = User.Identity.Name;
-            GrantedDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            GrantedDate.Text = DateTime.Now.ToString();
         }
         if(FormView1.FindControl("UpdatePanel4") is UpdatePanel UpdatePanel4)
             UpdatePanel4.Update();
@@ -120,7 +120,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
 
     protected void ExceptionsDataSource_OnInserted(Object sender, SqlDataSourceStatusEventArgs e)
     {
-        System.Data.Common.DbCommand command = e.Command;
+        //System.Data.Common.DbCommand command = e.Command;
 
         GridView GridView1Code = UpdatePanel3.FindControl("GridView1") as GridView;
         GridView1Code.DataBind();

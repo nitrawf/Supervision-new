@@ -30,8 +30,8 @@
                         </div>
                         <div class="col-md-6">
                             <asp:DropDownList ID="MorningSlotList" runat="server" SelectedValue='<%# Bind("MorningSlot") %>'>
-                                <asp:ListItem Value="0">Morning</asp:ListItem>
-                                <asp:ListItem Value="1">Evening</asp:ListItem>
+                                <asp:ListItem Value="true">Morning</asp:ListItem>
+                                <asp:ListItem Value="false">Evening</asp:ListItem>
                                 <asp:ListItem Value="">Both</asp:ListItem>
                             </asp:DropDownList>
                         </div>
