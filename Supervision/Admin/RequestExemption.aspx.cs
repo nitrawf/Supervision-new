@@ -32,7 +32,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
 
     private void SetDateRangesWhichCannotBeUsed()
     {
-        if (FormView1.FindControl("StaffDropDownList") is DropDownList StaffDropDownList && FormView1.FindControl("MorningSlotCheckBox") is CheckBox MorningSlotCheckBox)
+        if (FormView1.FindControl("StaffDropDownList") is DropDownList StaffDropDownList && FormView1.FindControl("MorningSlotList") is DropDownList MorningSlotList)
             using (var db = new SupervisionDBDataContext())
             {
                 DateRangesUsed = db.StaffBusies.Where(x =>
@@ -77,7 +77,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
         //Makes sure that the staff member is not busy for this time period/position/slot.
 
         DropDownList StaffDropDownList = FormView1.FindControl("StaffDropDownList") as DropDownList;
-        CheckBox MorningSlotCheckBox = FormView1.FindControl("MorningSlotCheckBox") as CheckBox;
+        DropDownList MorningSlotList = FormView1.FindControl("MorningSlotList") as DropDownList;
 
         Calendar Calendar1 = FormView1.FindControl("Calendar1") as Calendar;
         Calendar Calendar2 = FormView1.FindControl("Calendar2") as Calendar;
@@ -89,7 +89,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
 
                 var staffIsBusy = db.StaffBusies.Where(
                     x =>
-                            x.StaffID.ToString() == StaffDropDownList.SelectedValue && x.MorningSlot == MorningSlotCheckBox.Checked &&
+                            x.StaffID.ToString() == StaffDropDownList.SelectedValue && x.MorningSlot.ToString() == MorningSlotList.SelectedValue &&
                             (x.EndDate >= Calendar1.SelectedDate &&
                             x.StartDate <= Calendar2.SelectedDate)).ToList();   //Making sure ranges do not overlap
                 if (staffIsBusy.Count == 0)
@@ -159,14 +159,14 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
     protected void FreeDatesChanged(object sender, EventArgs e)
     {
         DropDownList StaffDropDownList = FormView1.FindControl("StaffDropDownList") as DropDownList;
-        CheckBox MorningSlotCheckBox = FormView1.FindControl("MorningSlotCheckBox") as CheckBox;
+        DropDownList MorningSlotList = FormView1.FindControl("MorningSlotList") as DropDownList;
         using (var db = new SupervisionDBDataContext())
         {
             List<DateTime> startDates = new List<DateTime>();
             List<DateTime> endDates = new List<DateTime>();
 
             DateRangesUsed = db.StaffBusies.Where(
-            x => x.MorningSlot == MorningSlotCheckBox.Checked &&
+            x => x.MorningSlot.ToString() == MorningSlotList.SelectedValue &&
                     x.StaffID.ToString() == StaffDropDownList.SelectedValue).ToList();
 
         }
