@@ -37,7 +37,6 @@
             <br />
 
             <h2>Assign Designations</h2>
-            <p>
                 It is a five step task:<br />
                 <ol type="a">
                     <li>Choose the designation to be assigned.</li>
@@ -45,10 +44,10 @@
                     <li>Select the start date and end date from a Virtual calender.</li>
                     <li>Choose the individual to be assigned with the task, from the list of employees including teaching and non-teaching staff.</li>
                     <li>Confirm the above mentioned choices by pressing the &quot;Insert&quot; captioned button.</li>
-                </ol><br />
-                (Following which, a row mentioning your latest Designation Assignment will appear at the bottom of the page, which you may consider as a confirmation of it being stored and also use it for future reference)<br />
+                </ol>
+                Following this, a row mentioning your latest Designation Assignment will appear at the bottom of the page, which you may consider as a confirmation of it being stored and also use it for future reference. 
                 The user can delete any row by clicking on the respective &quot;Delete&quot; option present in every row.<br />
-            </p>
+           
 
         </div>
     </div>
