@@ -26,7 +26,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
             GrantedByUserName.Text = User.Identity.Name;
             GrantedDate.Text = DateTime.Now.ToString();
         }
-        if(FormView1.FindControl("UpdatePanel4") is UpdatePanel UpdatePanel4)
+        if (FormView1.FindControl("UpdatePanel4") is UpdatePanel UpdatePanel4)
             UpdatePanel4.Update();
     }
 
@@ -35,9 +35,16 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
         if (FormView1.FindControl("StaffDropDownList") is DropDownList StaffDropDownList && FormView1.FindControl("MorningSlotList") is DropDownList MorningSlotList)
             using (var db = new SupervisionDBDataContext())
             {
-                DateRangesUsed = db.StaffBusies.Where(x =>
-                        x.StaffID.ToString() == StaffDropDownList.SelectedValue && x.MorningSlot==((MorningSlotList.Text=="")? (bool?)null :Convert.ToBoolean(MorningSlotList.Text))).ToList();
+                if(MorningSlotList.Text.Equals(""))
+                {
 
+                    DateRangesUsed = db.StaffBusies.Where(x => x.StaffID.ToString() == StaffDropDownList.SelectedValue).ToList();
+                }
+                else
+                {
+
+                    DateRangesUsed = db.StaffBusies.Where(x => x.StaffID.ToString() == StaffDropDownList.SelectedValue && (x.MorningSlot == Convert.ToBoolean(MorningSlotList.Text))).ToList();
+                }
             }
     }
 
