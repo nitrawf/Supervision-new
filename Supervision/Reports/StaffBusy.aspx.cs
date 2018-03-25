@@ -23,7 +23,7 @@ public partial class Reports_StaffBusy : System.Web.UI.Page
 
 		string query = "SELECT " +
 			"reason AS Reason," +
-			"MorningSlot AS Slot," +
+			"CASE MorningSlot WHEN 1 THEN 'Morning' WHEN 0 THEN 'Evening' ELSE 'Both' END AS Slot, " +
 			"StartDate AS 'Start Date'," +
 			"EndDate AS 'End Date'," +
 			"StaffID AS ID " +

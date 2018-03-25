@@ -29,7 +29,7 @@ public partial class Reports_StaffAssignedToRoom : System.Web.UI.Page
 			"LastName AS 'Last Name', " +
 			"Department AS Department, " +
 			"Designation AS Designation, " +
-			"MorningSlot AS Slot, " +
+			"CASE MorningSlot WHEN 1 THEN 'Morning' WHEN 0 THEN 'Evening' ELSE 'Both' END AS Slot, " +
 			"AssignmentDate AS 'Assignment Date', " +
 			"RoomNumber AS 'Room Number' " +
 			"FROM StaffAssignedToRoom";
