@@ -6,7 +6,7 @@
     </div>
 
     <br />
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="ExceptionID" DataSourceID="ExceptionsDataSource" DefaultMode="Insert">
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="ExceptionID" DataSourceID="ExceptionsDataSource" DefaultMode="Insert" OnPageIndexChanging="FormView1_PageIndexChanging">
         <InsertItemTemplate>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>

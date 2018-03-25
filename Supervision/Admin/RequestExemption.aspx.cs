@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 public partial class Admin_RequestExemption : System.Web.UI.Page
 {
-    static List<StaffBusy> dateRangesUsed { get; set; }
+    static List<StaffBusy> DateRangesUsed { get; set; }
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -16,10 +16,8 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
             SetDateRangesWhichCannotBeUsed();
 
         }
-
-        TextBox GrantedByUserName = FormView1.FindControl("GrantedByUserName") as TextBox;
-        TextBox GrantedDate = FormView1.FindControl("GrantedDate") as TextBox;
-        if (GrantedByUserName != null && GrantedDate != null)
+        
+        if (FormView1.FindControl("GrantedByUserName") is TextBox GrantedByUserName && FormView1.FindControl("GrantedDate") is TextBox GrantedDate)
         {
             GrantedByUserName.Text = User.Identity.Name;
             GrantedDate.Text = DateTime.Now.ToString();
@@ -28,15 +26,10 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
 
     private void SetDateRangesWhichCannotBeUsed()
     {
-        DropDownList StaffDropDownList = FormView1.FindControl("StaffDropDownList") as DropDownList;
-        CheckBox MorningSlotCheckBox = FormView1.FindControl("MorningSlotCheckBox") as CheckBox;
-        if (StaffDropDownList != null && MorningSlotCheckBox != null)
+        if (FormView1.FindControl("StaffDropDownList") is DropDownList StaffDropDownList && FormView1.FindControl("MorningSlotCheckBox") is CheckBox MorningSlotCheckBox)
             using (var db = new SupervisionDBDataContext())
             {
-                List<DateTime> startDates = new List<DateTime>();
-                List<DateTime> endDates = new List<DateTime>();
-
-                dateRangesUsed = db.StaffBusies.Where(x =>
+                DateRangesUsed = db.StaffBusies.Where(x =>
                         x.StaffID.ToString() == StaffDropDownList.SelectedValue).ToList();
 
             }
@@ -146,7 +139,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
         }
 
 
-        if (dateRangesUsed.Any(
+        if (DateRangesUsed.Any(
                 x => x.EndDate >= e.Day.Date &&
                         x.StartDate <= e.Day.Date))
         {
@@ -165,7 +158,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
             List<DateTime> startDates = new List<DateTime>();
             List<DateTime> endDates = new List<DateTime>();
 
-            dateRangesUsed = db.StaffBusies.Where(
+            DateRangesUsed = db.StaffBusies.Where(
             x => x.MorningSlot == MorningSlotCheckBox.Checked &&
                     x.StaffID.ToString() == StaffDropDownList.SelectedValue).ToList();
 
