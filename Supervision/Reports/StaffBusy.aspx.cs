@@ -21,7 +21,13 @@ public partial class Reports_StaffBusy : System.Web.UI.Page
 		string constring = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 		SqlConnection con = new SqlConnection(constring);
 
-		string query = "SELECT * FROM StaffBusy";
+		string query = "SELECT " +
+			"reason AS Reason," +
+			"MorningSlot AS Slot," +
+			"StartDate AS 'Start Date'," +
+			"EndDate AS 'End Date'," +
+			"StaffID AS ID " +
+			"FROM StaffBusy";
 		con.Open();
 		SqlCommand cmd = new SqlCommand(query, con);
 
