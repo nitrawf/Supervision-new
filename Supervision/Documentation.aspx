@@ -8,39 +8,81 @@
 
     <div class="row">
         <div class="col-md-12" style="font-size: large;">
-            As you visit the Supervision Software website, you will come across six actions which you may choose to perform.One can proceed with an action by pressing its respective&quot;Go &gt;&gt;&quot; captioned button, placed below each of the actions.<br />
+            As you use the website, you will come across six actions which you may choose to perform.One can proceed with an action by pressing its respective &quot;Go &gt;&gt;&quot; captioned button, placed below each of the actions.<br />
 
             <ol>
-                <li>&quot;Assign Designations&quot;</li>
-                <li>&quot;Assign Rooms&quot;</li>
-                <li>&quot;Assign Exceptions&quot;</li>
-                <li>&quot;Reports&quot;</li>
-                <li>&quot;Table Views&quot;</li>
-                <li>&quot;Add Blocks&quot;</li>
+                <li><a href="#AddBlocks">Add Blocks</a></li>
+                <li><a href="#AssignDesignations">Assign Designations</a></li>
+                <li><a href="#AssignRooms">Assign Rooms</a></li>
+                <li><a href="#AssignExemptions">Assign Exceptions</a></li>
+                <li><a href="#Reports">Reports </a></li>
+                <li><a href="#TableViews">Table Views </a></li>
             </ol>
+        </div>
+    </div>
 
+    <div class="row" id="AddBlocks">
+        <div class="col-md-12" style="font-size: large;">
             <br />
-            <h2>First Step : Add blocks.
+            <h2>Add blocks
             </h2>
             <p>
-                <strong>Assign Designations</strong> - It is a five step task:<br />
+                You must complete this step first and add all the blocks which will be available for students to be examined in. Simply type the block's name in the text box and click submit, until there is a comprehensive list. 
+            </p>
+        </div>
+    </div>
+    <div class="row" id="AssignDesignations">
+        <div class="col-md-12" style="font-size: large;">
+            <br />
+
+            <h2>Assign Designations</h2>
+            <p>
+                It is a five step task:<br />
                 1. Choose the designation to be assigned.<br />
-                2. Use the radio button to specify whether the role assigned is for the morning/evening slot.<br />
+                2. Use the radio button to specify whether the role assigned is for the morning/evening slot. If it's checked it's for the morning slot, leave it unchecked for the evening slot.<br />
                 3. Select the start date and end date from a Virtual calender.<br />
                 4. Choose the individual to be assigned with the task, from the list of employees including teaching and non-teaching staff.<br />
                 5. Confirm the above mentioned choices by pressing the&quot;Insert&quot; captioned button.<br />
                 (Following which, a row mentioning your latest Designation Assignment will appear at the bottom of the page, which you may consider as a confirmation of it being stored and also use it for future reference)<br />
             </p>
+
+        </div>
+    </div>
+    <div class="row" id="AssignRooms">
+        <div class="col-md-12" style="font-size: large;">
+            <br />
+            <h2>Assign Rooms</h2>
             <p>
-                <strong>Assign Rooms</strong> -&nbsp; It is fairly similar to the process of Assigning Designations, with the obvious exception being that the first step will require you to choose the room number of the room to be assigned with the examination session. Along with the similar radio button to specify the slot (morning/evening).<br />
+                It is fairly similar to the process of Assigning Designations, with the obvious exception being that the first step will require you to choose the room number of the room to be assigned with the examination session. Along with the similar radio button to specify the slot (morning/evening).<br />
             </p>
+
+        </div>
+    </div>
+    <div class="row" id="AssignExemptions">
+        <div class="col-md-12" style="font-size: large;">
+            <br />
+            <h2>Assign Exemptions</h2>
             <p>
-                <strong>Assign Exemptions</strong> - The requirements to perform this action is also more or less similar to the actions covered so far in this documentation. Except that we have to add three extra details as compared to the actions discussed so far. Them being, a brief reason and adetailed reason for seeking exemption. And also, before hitting the&quot;Insert&quot; button, the person granting the exemption has to be named.<br />
+                The requirements to perform this action is also more or less similar to the actions covered so far in this documentation. Except that we have to add three extra details as compared to the actions discussed so far. Them being, a brief reason and adetailed reason for seeking exemption. And also, before hitting the&quot;Insert&quot; button, the person granting the exemption has to be named.<br />
             </p>
+        </div>
+    </div>
+    <div class="row" id="Reports">
+        <div class="col-md-12" style="font-size: large;">
+            <br />
+            <h2>Reports</h2>
             <p>
-                <strong>Reports</strong> - This option allows the user to access the various records pertaining to Room Assignments, Staff Assignments and Exemptions granted, so far.&nbsp;&nbsp;
+                This option allows the user to access the various records pertaining to Room Assignments, Staff Assignments and Exemptions granted, so far.&nbsp;&nbsp;
             </p>
-            &nbsp;<br />
+        </div>
+    </div>
+    <div class="row" id="TableViews">
+        <div class="col-md-12" style="font-size: large;">
+            <br />
+            <h2>TableViews</h2>
+            <p>
+                This option is an administrative option used to repair the backend data by the developers or maintainers when issues arise. This will not be used by the end-users of the software.&nbsp;&nbsp;
+            </p>
         </div>
     </div>
     <br />
