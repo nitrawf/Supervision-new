@@ -36,7 +36,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
             using (var db = new SupervisionDBDataContext())
             {
                 DateRangesUsed = db.StaffBusies.Where(x =>
-                        x.StaffID.ToString() == StaffDropDownList.SelectedValue).ToList();
+                        x.StaffID.ToString() == StaffDropDownList.SelectedValue && x.MorningSlot==((MorningSlotList.Text=="")? (bool?)null :Convert.ToBoolean(MorningSlotList.Text))).ToList();
 
             }
     }
@@ -107,8 +107,6 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
                     StaffValidator.ErrorMessage = errorMessage;
 
                 }
-
-
             }
         }
         else
@@ -158,33 +156,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
 
     protected void FreeDatesChanged(object sender, EventArgs e)
     {
-        DropDownList StaffDropDownList = FormView1.FindControl("StaffDropDownList") as DropDownList;
-        DropDownList MorningSlotList = FormView1.FindControl("MorningSlotList") as DropDownList;
-        using (var db = new SupervisionDBDataContext())
-        {
-            List<DateTime> startDates = new List<DateTime>();
-            List<DateTime> endDates = new List<DateTime>();
-
-            DateRangesUsed = db.StaffBusies.Where(
-            x => x.MorningSlot.ToString() == MorningSlotList.SelectedValue &&
-                    x.StaffID.ToString() == StaffDropDownList.SelectedValue).ToList();
-
-        }
-
+        SetDateRangesWhichCannotBeUsed();
     }
 
-    protected static void ExceptionGranted()
-    {
-        /*
-        string userName = "";
-        if (!IsPost)
-        {
-            userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            DateTime today = DateTime.Today;
-            var db = Database.Open("Exceptions");
-            var insertCommand = "INSERT INTO Exceptions (GrantedByUserName,GrantedDate) VALUES(@0,@1)";
-            db.Execute(insertCommand, userName, today);
-        }
-        */
-    }
 }

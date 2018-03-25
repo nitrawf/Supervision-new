@@ -29,7 +29,7 @@
                         
                         </div>
                         <div class="col-md-6">
-                            <asp:DropDownList ID="MorningSlotList" runat="server" SelectedValue='<%# Bind("MorningSlot") %>'>
+                            <asp:DropDownList ID="MorningSlotList" runat="server" SelectedValue='<%# Bind("MorningSlot")  %>' OnSelectedIndexChanged="FreeDatesChanged"  AutoPostBack="true">
                                 <asp:ListItem Value="true">Morning</asp:ListItem>
                                 <asp:ListItem Value="false">Evening</asp:ListItem>
                                 <asp:ListItem Value="">Both</asp:ListItem>
