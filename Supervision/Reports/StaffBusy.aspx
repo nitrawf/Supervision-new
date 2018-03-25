@@ -34,6 +34,6 @@
          <br />
     </div>
     <br />
-    <asp:Button class="btn btn-default btn-primary" ID="downloadStaffBusy" runat="server" OnClick="downloadStaffBusy_Click" Text="Download as Excel" />
+    <asp:Button ID="downloadStaffBusy" runat="server" OnClick="DownloadStaffBusy_Click" Text="Download as Excel"  CssClass="btn btn-default btn-primary"/>
 </asp:Content>
 

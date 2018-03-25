@@ -46,5 +46,5 @@
     <br />
     <br />
     
-    <asp:Button class="btn btn-primary btn-default" ID="downloadExcel" runat="server" OnClick="downloadExcel_Click" Text="Download as Excel" />
+    <asp:Button CssClass="btn btn-primary btn-default" ID="downloadExcel" runat="server" OnClick="DownloadExcel_Click" Text="Download as Excel" />
 </asp:Content>

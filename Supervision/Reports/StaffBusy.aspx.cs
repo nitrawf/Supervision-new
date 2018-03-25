@@ -16,7 +16,7 @@ public partial class Reports_StaffBusy : System.Web.UI.Page
 
 	}
 
-	protected void downloadStaffBusy_Click(object sender, EventArgs e)
+	protected void DownloadStaffBusy_Click(object sender, EventArgs e)
 	{
 		string constring = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 		SqlConnection con = new SqlConnection(constring);
@@ -27,10 +27,12 @@ public partial class Reports_StaffBusy : System.Web.UI.Page
 
 		var wb = new XLWorkbook();
 
-		DataTable table = new DataTable();
-		table.TableName = "StaffBusy";
+        DataTable table = new DataTable
+        {
+            TableName = "StaffBusy"
+        };
 
-		table.Load(cmd.ExecuteReader());
+        table.Load(cmd.ExecuteReader());
 
 		con.Close();
 
@@ -46,7 +48,6 @@ public partial class Reports_StaffBusy : System.Web.UI.Page
 		{
 			wb.SaveAs(memoryStream);
 			memoryStream.WriteTo(httpResponse.OutputStream);
-			memoryStream.Close();
 		}
 
 		httpResponse.End();
