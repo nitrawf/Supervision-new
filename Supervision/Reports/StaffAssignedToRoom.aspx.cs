@@ -21,7 +21,19 @@ public partial class Reports_StaffAssignedToRoom : System.Web.UI.Page
 		string constring = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 		SqlConnection con = new SqlConnection(constring);
 
-		string query = "SELECT * FROM StaffAssignedToRoom";
+		string query = "SELECT " +
+			"EmployeeCode AS ID, " +
+			"TypeOfStaff AS 'Staff Type', " +
+			"FirstName AS 'First Name', " +
+			"MiddleName AS 'Middle Name', " +
+			"LastName AS 'Last Name', " +
+			"Department AS Department, " +
+			"Designation AS Designation, " +
+			"MorningSlot AS Slot, " +
+			"AssignmentDate AS 'Assignment Date', " +
+			"RoomNumber AS 'Room Number' " +
+			"FROM StaffAssignedToRoom";
+
 		con.Open();
 		SqlCommand cmd = new SqlCommand(query, con);
 
