@@ -24,7 +24,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
         if (FormView1.FindControl("GrantedByUserName") is TextBox GrantedByUserName && FormView1.FindControl("GrantedDate") is TextBox GrantedDate)
         {
             GrantedByUserName.Text = User.Identity.Name;
-            GrantedDate.Text = DateTime.Now.ToString();
+            GrantedDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
         }
         if(FormView1.FindControl("UpdatePanel4") is UpdatePanel UpdatePanel4)
             UpdatePanel4.Update();

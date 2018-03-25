@@ -21,7 +21,24 @@ public partial class Reports_TeachersExempted : System.Web.UI.Page
 		string constring = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
 		SqlConnection con = new SqlConnection(constring);
 
-		string query = "SELECT * FROM TeachersExempted";
+		string query = "SELECT " +
+			"ExpectionID AS ID," +
+			"BreifReason AS Reason," +
+			"StartDate AS 'Start Date'," +
+			"EndDate AS 'End Date'," +
+			"Description AS Description," +
+			"CASE MorningSlot WHEN 1 THEN 'Morning' WHEN 0 THEN 'Evening' ELSE 'Both' END AS Slot," +
+			"StaffID AS ID," +
+			"GrantedByUserName AS 'Granted By'," +
+			"GrantedDate AS 'Granted On'," +
+			"EmployeeCode AS 'Employee Code'," +
+			"TypeOfStaff AS 'Staff Type'," +
+			"FirstName AS 'First Name'," +
+			"MiddleName AS 'Middle Name'," +
+			"LastName AS 'Last Name'," +
+			"Department AS Department," +
+			"Designation AS Designation " +
+			"FROM TeachersExempted";
 		con.Open();
 		SqlCommand cmd = new SqlCommand(query, con);
 

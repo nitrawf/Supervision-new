@@ -25,13 +25,16 @@
                     <div class="row">
                         <div class="col-md-6">
                         
-                            The slot for which exemption is requested - Morning(checked)/Evening(unchecked):
+                            The slot for which exemption is requested :
                         
                         </div>
                         <div class="col-md-6">
-                            
                             <asp:CheckBox ID="MorningSlotCheckBox" runat="server" Checked='<%# Bind("MorningSlot") %>' OnCheckedChanged="FreeDatesChanged" AutoPostBack="true" />
-                            
+                            <asp:DropDownList ID="DropDownList1" runat="server" SelectedValue='<%# Bind("MorningSlot") %>'>
+                                <asp:ListItem Value="0">Morning</asp:ListItem>
+                                <asp:ListItem Value="1">Evening</asp:ListItem>
+                                <asp:ListItem Value="">Both</asp:ListItem>
+                            </asp:DropDownList>
                         </div>
                     </div>
 
@@ -194,28 +197,27 @@
 
  from [darezik].[Staff]
            order by firstname"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="JoinedDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Exceptions.ExpectionID, Exceptions.BreifReason, Exceptions.StartDate, Exceptions.EndDate, Exceptions.Description, Exceptions.MorningSlot, Exceptions.GrantedByUserName, Exceptions.GrantedDate, concat(Staff.FirstName,' ',Staff.LastName, ' - ',Staff.Department, ',',Staff.Designation, ' | ',Staff.TypeOfStaff) as aggregate  FROM Exceptions INNER JOIN Staff ON Exceptions.StaffID = Staff.StaffID"></asp:SqlDataSource>
     <asp:SqlDataSource ID="StaffBusyDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [StaffBusy] ORDER BY [StaffID]"></asp:SqlDataSource>
     <br />
     <asp:UpdatePanel ID="UpdatePanel3" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
                     <div class="row">
                         <div class="col-md-12">
-            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ExpectionID" DataSourceID="ExceptionsDataSource" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical"  Width="100%">
+            <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ExpectionID" DataSourceID="JoinedDataSource" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical"  Width="100%">
                 <AlternatingRowStyle BackColor="#CCCCCC" />
                 <Columns>
-                    <asp:CommandField ShowDeleteButton="True" />
-                    <asp:BoundField DataField="ExpectionID" HeaderText="ExceptionID" InsertVisible="False" ReadOnly="True" SortExpression="ExpectionID" />
-                    <asp:BoundField DataField="BreifReason" HeaderText="BreifReason" SortExpression="BreifReason" />
-                    <asp:BoundField DataField="StartDate" HeaderText="StartDate" SortExpression="StartDate" />
-                    <asp:BoundField DataField="EndDate" HeaderText="EndDate" SortExpression="EndDate" />
+                    <asp:BoundField DataField="ExpectionID" HeaderText="Exception ID" InsertVisible="False" ReadOnly="True" SortExpression="ExpectionID" />
+                    <asp:BoundField DataField="BreifReason" HeaderText="Brief Reason" SortExpression="BreifReason" />
+                    <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" DataFormatString = "{0:dd/MM/yyyy}"/>
+                    <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate" DataFormatString = "{0:dd/MM/yyyy}"/>
                     <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                     <asp:TemplateField HeaderText="Slot" SortExpression="MorningSlot" >
                         <ItemTemplate><%#Eval("MorningSlot").ToString().Equals("")? "Both" :((Boolean.Parse(Eval("MorningSlot").ToString())) ? "Morning" : "Evening")  %></ItemTemplate>
                     </asp:TemplateField>
-                    <asp:BoundField DataField="StaffID" HeaderText="StaffID" SortExpression="StaffID" />
-                    <asp:BoundField DataField="GrantedByUserName" HeaderText="GrantedByUserName" SortExpression="GrantedByUserName" />
-                    <asp:BoundField DataField="GrantedDate" HeaderText="GrantedDate" SortExpression="GrantedDate" />
-       
+                    <asp:BoundField DataField="GrantedByUserName" HeaderText="Granted By " SortExpression="GrantedByUserName" />
+                    <asp:BoundField DataField="GrantedDate" HeaderText="Granted on Date" SortExpression="GrantedDate" DataFormatString = "{0:dd/MM/yyyy}" />
+                    <asp:BoundField DataField="aggregate" HeaderText="Staff Details" ReadOnly="True" SortExpression="aggregate" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
                 <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />

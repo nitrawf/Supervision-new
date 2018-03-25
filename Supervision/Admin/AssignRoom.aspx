@@ -127,7 +127,7 @@
                                     <asp:BoundField DataField="AssignmentID" HeaderText="Assignment ID" InsertVisible="False" ReadOnly="True" SortExpression="AssignmentID" />
                                     <asp:BoundField DataField="RoomID" HeaderText="Block ID" SortExpression="RoomID" />
                                     <asp:BoundField DataField="RoomNumber" HeaderText="Block Number" SortExpression="RoomNumber" />
-                                    <asp:BoundField DataField="AssignmentDate" HeaderText="Assignment Date" SortExpression="AssignmentDate" />
+                                    <asp:BoundField DataField="AssignmentDate" HeaderText="Assignment Date" SortExpression="AssignmentDate" DataFormatString = "{0:dd/MM/yyyy}" />
                                     <asp:TemplateField HeaderText="Slot" SortExpression="MorningSlot" >
                                     <ItemTemplate><%#Eval("MorningSlot").ToString().Equals("")? "Both" :((Boolean.Parse(Eval("MorningSlot").ToString())) ? "Morning" : "Evening")  %></ItemTemplate>
                                     </asp:TemplateField>
