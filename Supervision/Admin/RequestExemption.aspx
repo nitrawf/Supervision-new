@@ -6,7 +6,7 @@
     </div>
 
     <br />
-    <asp:FormView ID="FormView1" runat="server" DataKeyNames="ExceptionID" DataSourceID="ExceptionsDataSource" DefaultMode="Insert" OnPageIndexChanging="FormView1_PageIndexChanging">
+    <asp:FormView ID="FormView1" runat="server" DataKeyNames="ExceptionID" DataSourceID="ExceptionsDataSource" DefaultMode="Insert" >
         <InsertItemTemplate>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
@@ -91,6 +91,10 @@
                         </div>
                     </div>
                     
+                </ContentTemplate>
+                </asp:UpdatePanel>
+            <asp:UpdatePanel ID="UpdatePanel4" UpdateMode="Conditional" runat="server">
+                <ContentTemplate>
                     
                     <div class="row">
                         <div class="col-md-6">
@@ -109,10 +113,9 @@
                           <asp:TextBox Width="100%" ID="GrantedDate" runat="server" Text='<%# Bind("GrantedDate") %>' ReadOnly="True" BackColor="LightGray"></asp:TextBox>
                               </div>
                     </div>
-
-
                 </ContentTemplate>
                 </asp:UpdatePanel>
+
             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                 <ContentTemplate>
                     <br />

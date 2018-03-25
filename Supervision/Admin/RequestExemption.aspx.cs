@@ -16,12 +16,18 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
             SetDateRangesWhichCannotBeUsed();
 
         }
-        
+        ShowUserAndDate();
+    }
+
+    private void ShowUserAndDate()
+    {
         if (FormView1.FindControl("GrantedByUserName") is TextBox GrantedByUserName && FormView1.FindControl("GrantedDate") is TextBox GrantedDate)
         {
             GrantedByUserName.Text = User.Identity.Name;
             GrantedDate.Text = DateTime.Now.ToString();
         }
+        if(FormView1.FindControl("UpdatePanel4") is UpdatePanel UpdatePanel4)
+            UpdatePanel4.Update();
     }
 
     private void SetDateRangesWhichCannotBeUsed()
@@ -120,6 +126,7 @@ public partial class Admin_RequestExemption : System.Web.UI.Page
         GridView1Code.DataBind();
         ScriptManager.RegisterClientScriptBlock(GridView1Code, this.GetType(), "AlertMsg", "<script language='javascript'>$('html, body').animate({ scrollTop: $(document).height() }, 1000);</script>", false);
         SetDateRangesWhichCannotBeUsed();
+        ShowUserAndDate();
 
         UpdatePanel3.Update();
     }
