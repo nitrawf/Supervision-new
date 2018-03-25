@@ -11,4 +11,25 @@ public partial class Admin_AddBlock : System.Web.UI.Page
     {
 
     }
+
+    protected void ServerValidation(object source, ServerValidateEventArgs arguments)
+    {
+        //Makes sure that the room number is valid.
+        if (FormView1.FindControl("RoomNumberTextBox") is TextBox RoomNumberTextBox)
+        {
+            if (!String.IsNullOrWhiteSpace(RoomNumberTextBox.Text))
+            {
+                arguments.IsValid = true;
+            }
+            else
+            {
+                arguments.IsValid = false;
+            }
+        }
+        else
+        {
+            arguments.IsValid = false;
+        }
+
+    }
 }

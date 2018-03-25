@@ -18,6 +18,11 @@
                             <asp:TextBox Width="100%" ID="RoomNumberTextBox" runat="server" Text='<%# Bind("RoomNumber") %>' />
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-12" style="color: red;">
+                            <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Enter a valid room number." OnServerValidate="ServerValidation"></asp:CustomValidator>
+                        </div>
+                    </div>
                     <div style="display: none;">
                         <div class="row">
                             <div class="col-md-6">
@@ -44,7 +49,6 @@
                             </div>
                         </div>
                     </div>
-            <br />
                     <div class="row">
                         <div class="col-md-6">
                         </div>
