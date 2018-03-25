@@ -31,7 +31,6 @@
                         <div class="col-md-6">
                             
                             <asp:CheckBox ID="MorningSlotCheckBox" runat="server" Checked='<%# Bind("MorningSlot") %>' OnCheckedChanged="FreeDatesChanged" AutoPostBack="true" />
-                            
                         </div>
                     </div>
 
@@ -213,7 +212,7 @@
                                     <ItemTemplate><%#Eval("MorningSlot").ToString().Equals("")? "Both" :((Boolean.Parse(Eval("MorningSlot").ToString())) ? "Morning" : "Evening")  %></ItemTemplate>
                                     </asp:TemplateField>
                     <asp:BoundField DataField="GrantedByUserName" HeaderText="Granted By " SortExpression="GrantedByUserName" />
-                    <asp:BoundField DataField="GrantedDate" HeaderText="Granted on Date" SortExpression="GrantedDate" />
+                    <asp:BoundField DataField="GrantedDate" HeaderText="Granted on Date" SortExpression="GrantedDate" DataFormatString = "{0:dd/MM/yyyy}" />
                     <asp:BoundField DataField="aggregate" HeaderText="Staff Details" ReadOnly="True" SortExpression="aggregate" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
