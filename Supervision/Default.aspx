@@ -10,6 +10,15 @@
 
     <div class="row">
         <div class="col-md-4">
+            <h2>Add blocks</h2>
+            <p>
+                Add a new block which are available for exams and can be assigned to.
+            </p>
+            <p>
+                <a class="btn btn-default" href="Admin/AddBlock.aspx">Go &raquo;</a>
+            </p>
+        </div>
+        <div class="col-md-4">
             <h2>Assign Designations</h2>
             <p>
                 Assign Designation to a staff member for a particular date or a date range.
@@ -19,18 +28,9 @@
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Assign Blocks</h2>
-            <p>
-                Assign a block to a staff member for a particular date.
-            </p>
-            <p>
-                <a class="btn btn-default" href="Admin/AssignRoom.aspx">Go &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
             <h2>Assign Exemptions</h2>
             <p>
-                Assign exemptions to a staff member if required.
+                Assign exemptions to a staff member if they are unavailable for a date range.
             </p>
             <p>
                 <a class="btn btn-default" href="Admin/RequestExemption.aspx">Go &raquo;</a>
@@ -39,6 +39,15 @@
     </div>
 
     <div class="row">
+        <div class="col-md-4">
+            <h2>Assign Blocks</h2>
+            <p>
+                Assign a block to a staff member for a particular date.
+            </p>
+            <p>
+                <a class="btn btn-default" href="Admin/AssignRoom.aspx">Go &raquo;</a>
+            </p>
+        </div>
         <div class="col-md-4">
             <h2>Reports</h2>
             <p>
@@ -55,15 +64,6 @@
             </p>
             <p>
                 <a class="btn btn-default" href="TableView/Default.aspx">Go &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Add block</h2>
-            <p>
-                Add a new block which can be assigned to.
-            </p>
-            <p>
-                <a class="btn btn-default" href="Admin/AddBlock.aspx">Go &raquo;</a>
             </p>
         </div>
     </div>
