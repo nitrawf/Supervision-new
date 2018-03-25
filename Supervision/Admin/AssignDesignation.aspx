@@ -152,7 +152,7 @@
 
                     <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" DataFormatString = "{0:dd/MM/yyyy}"/>
                     <asp:BoundField DataField="EndDate" HeaderText="End Date" SortExpression="EndDate" DataFormatString = "{0:dd/MM/yyyy}"/>
-                    <asp:BoundField DataField="StaffDetails" HeaderText="StaffDetails" ReadOnly="True" SortExpression="StaffDetails" />
+                    <asp:BoundField DataField="StaffDetails" HeaderText="Staff Details" ReadOnly="True" SortExpression="StaffDetails" />
                 </Columns>
                 <FooterStyle BackColor="#CCCCCC" />
                 <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
