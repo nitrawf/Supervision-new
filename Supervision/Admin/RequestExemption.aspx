@@ -196,7 +196,9 @@
 
  from [darezik].[Staff]
            order by firstname"></asp:SqlDataSource>
-    <asp:SqlDataSource ID="JoinedDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT Exceptions.ExpectionID, Exceptions.BreifReason, Exceptions.StartDate, Exceptions.EndDate, Exceptions.Description, Exceptions.MorningSlot, Exceptions.GrantedByUserName, Exceptions.GrantedDate, concat(Staff.FirstName,' ',Staff.LastName, ' - ',Staff.Department, ',',Staff.Designation, ' | ',Staff.TypeOfStaff) as aggregate  FROM Exceptions INNER JOIN Staff ON Exceptions.StaffID = Staff.StaffID"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="JoinedDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" 
+        SelectCommand="SELECT Exceptions.ExpectionID, Exceptions.BreifReason, Exceptions.StartDate, Exceptions.EndDate, Exceptions.Description, Exceptions.MorningSlot, Exceptions.GrantedByUserName, Exceptions.GrantedDate, concat(Staff.FirstName,' ', Staff.LastName, ' - ',Staff.Department, ',',Staff.Designation, ' | ',Staff.TypeOfStaff) as aggregate  FROM Exceptions INNER JOIN Staff ON Exceptions.StaffID = Staff.StaffID" 
+        DeleteCommand="DELETE FROM Exceptions WHERE (ExpectionID = @ExpectionID)"></asp:SqlDataSource>
     <asp:SqlDataSource ID="StaffBusyDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT * FROM [StaffBusy] ORDER BY [StaffID]"></asp:SqlDataSource>
     <br />
     <asp:UpdatePanel ID="UpdatePanel3" runat="server" UpdateMode="Conditional">
@@ -206,6 +208,7 @@
             <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ExpectionID" DataSourceID="JoinedDataSource" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical"  Width="100%">
                 <AlternatingRowStyle BackColor="#CCCCCC" />
                 <Columns>
+                    <asp:CommandField ShowDeleteButton="True" />
                     <asp:BoundField DataField="ExpectionID" HeaderText="Exception ID" InsertVisible="False" ReadOnly="True" SortExpression="ExpectionID" />
                     <asp:BoundField DataField="BreifReason" HeaderText="Brief Reason" SortExpression="BreifReason" />
                     <asp:BoundField DataField="StartDate" HeaderText="Start Date" SortExpression="StartDate" DataFormatString = "{0:dd/MM/yyyy}"/>
