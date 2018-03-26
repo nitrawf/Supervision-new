@@ -7,7 +7,7 @@
 		<p class="lead">Assign a staff member to an exam room for duty on a day and shift. </p>
     </div>
 
-    <asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="AssignmentID" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical">
+    <div class="table-responsive"><asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="AssignmentID" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical">
         <AlternatingRowStyle BackColor="#CCCCCC" />
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
@@ -25,7 +25,7 @@
         <SortedAscendingHeaderStyle BackColor="#808080" />
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#383838" />
-    </asp:GridView>
+    </asp:GridView></div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" DeleteCommand="DELETE FROM [RoomAssignment] WHERE [AssignmentID] = @original_AssignmentID AND (([RoomID] = @original_RoomID) OR ([RoomID] IS NULL AND @original_RoomID IS NULL)) AND (([StaffID] = @original_StaffID) OR ([StaffID] IS NULL AND @original_StaffID IS NULL)) AND (([MorningSlot] = @original_MorningSlot) OR ([MorningSlot] IS NULL AND @original_MorningSlot IS NULL)) AND (([AssignmentDate] = @original_AssignmentDate) OR ([AssignmentDate] IS NULL AND @original_AssignmentDate IS NULL))" InsertCommand="INSERT INTO [RoomAssignment] ([RoomID], [StaffID], [MorningSlot], [AssignmentDate]) VALUES (@RoomID, @StaffID, @MorningSlot, @AssignmentDate)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [RoomAssignment]" UpdateCommand="UPDATE [RoomAssignment] SET [RoomID] = @RoomID, [StaffID] = @StaffID, [MorningSlot] = @MorningSlot, [AssignmentDate] = @AssignmentDate WHERE [AssignmentID] = @original_AssignmentID AND (([RoomID] = @original_RoomID) OR ([RoomID] IS NULL AND @original_RoomID IS NULL)) AND (([StaffID] = @original_StaffID) OR ([StaffID] IS NULL AND @original_StaffID IS NULL)) AND (([MorningSlot] = @original_MorningSlot) OR ([MorningSlot] IS NULL AND @original_MorningSlot IS NULL)) AND (([AssignmentDate] = @original_AssignmentDate) OR ([AssignmentDate] IS NULL AND @original_AssignmentDate IS NULL))">
         <DeleteParameters>
             <asp:Parameter Name="original_AssignmentID" Type="Int32" />

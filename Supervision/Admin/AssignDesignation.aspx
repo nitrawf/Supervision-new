@@ -141,7 +141,7 @@
         <ContentTemplate>
                     <div class="row">
                         <div class="col-md-12">
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="JoinedDataSource" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" DataKeyNames="DesignationID" Width="100%">
+            <div class="table-responsive"><asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="JoinedDataSource" AllowSorting="True" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" ForeColor="Black" GridLines="Vertical" DataKeyNames="DesignationID" Width="100%">
                 <AlternatingRowStyle BackColor="#CCCCCC" />
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" />
@@ -162,7 +162,7 @@
                 <SortedAscendingHeaderStyle BackColor="#808080" />
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#383838" />
-            </asp:GridView>
+            </asp:GridView></div>
                             </div>
                         </div>
             <asp:SqlDataSource ID="JoinedDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" SelectCommand="SELECT [DesignationID]

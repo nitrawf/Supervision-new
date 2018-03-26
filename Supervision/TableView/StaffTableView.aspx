@@ -7,7 +7,7 @@
 		<p class="lead">Add or remove a staff member. You can also view a list of all staff members. </p>
     </div>
 
-        <asp:GridView ID="StaffGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="StaffID" DataSourceID="StaffDataSource" ForeColor="Black" GridLines="Vertical">
+        <div class="table-responsive"><asp:GridView ID="StaffGridView" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="StaffID" DataSourceID="StaffDataSource" ForeColor="Black" GridLines="Vertical">
             <AlternatingRowStyle BackColor="#CCCCCC" />
             <Columns>
                 <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
@@ -28,7 +28,7 @@
             <SortedAscendingHeaderStyle BackColor="#808080" />
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#383838" />
-        </asp:GridView>
+        </asp:GridView></div>
     <asp:SqlDataSource ID="StaffDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" DeleteCommand="DELETE FROM [Staff] WHERE [StaffID] = @original_StaffID" InsertCommand="INSERT INTO [Staff] ([EmployeeCode], [TypeOfStaff], [FirstName], [MiddleName], [LastName], [Department], [Designation]) VALUES (@EmployeeCode, @TypeOfStaff, @FirstName, @MiddleName, @LastName, @Department, @Designation)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Staff]" UpdateCommand="UPDATE [Staff] SET [EmployeeCode] = @EmployeeCode, [TypeOfStaff] = @TypeOfStaff, [FirstName] = @FirstName, [MiddleName] = @MiddleName, [LastName] = @LastName, [Department] = @Department, [Designation] = @Designation WHERE [StaffID] = @original_StaffID">
         <DeleteParameters>
             <asp:Parameter Name="original_StaffID" Type="Int32" />

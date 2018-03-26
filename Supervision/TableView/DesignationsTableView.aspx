@@ -7,7 +7,7 @@
 		<p class="lead">Assign a staff member to a designation for a time period and shift. </p>
     </div>
     
-	<asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="DesignationID" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical">
+	<div class="table-responsive"><asp:GridView ID="GridView1" runat="server" AllowSorting="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="Solid" BorderWidth="1px" CellPadding="3" DataKeyNames="DesignationID" DataSourceID="SqlDataSource1" ForeColor="Black" GridLines="Vertical">
         <AlternatingRowStyle BackColor="#CCCCCC" />
         <Columns>
             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
@@ -26,7 +26,7 @@
         <SortedAscendingHeaderStyle BackColor="#808080" />
         <SortedDescendingCellStyle BackColor="#CAC9C9" />
         <SortedDescendingHeaderStyle BackColor="#383838" />
-    </asp:GridView>
+    </asp:GridView></div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:DefaultConnection %>" DeleteCommand="DELETE FROM [Designations] WHERE [DesignationID] = @original_DesignationID AND (([Role] = @original_Role) OR ([Role] IS NULL AND @original_Role IS NULL)) AND (([MorningSlot] = @original_MorningSlot) OR ([MorningSlot] IS NULL AND @original_MorningSlot IS NULL)) AND (([StartDate] = @original_StartDate) OR ([StartDate] IS NULL AND @original_StartDate IS NULL)) AND (([EndDate] = @original_EndDate) OR ([EndDate] IS NULL AND @original_EndDate IS NULL)) AND (([StaffID] = @original_StaffID) OR ([StaffID] IS NULL AND @original_StaffID IS NULL))" InsertCommand="INSERT INTO [Designations] ([Role], [MorningSlot], [StartDate], [EndDate], [StaffID]) VALUES (@Role, @MorningSlot, @StartDate, @EndDate, @StaffID)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [Designations]" UpdateCommand="UPDATE [Designations] SET [Role] = @Role, [MorningSlot] = @MorningSlot, [StartDate] = @StartDate, [EndDate] = @EndDate, [StaffID] = @StaffID WHERE [DesignationID] = @original_DesignationID AND (([Role] = @original_Role) OR ([Role] IS NULL AND @original_Role IS NULL)) AND (([MorningSlot] = @original_MorningSlot) OR ([MorningSlot] IS NULL AND @original_MorningSlot IS NULL)) AND (([StartDate] = @original_StartDate) OR ([StartDate] IS NULL AND @original_StartDate IS NULL)) AND (([EndDate] = @original_EndDate) OR ([EndDate] IS NULL AND @original_EndDate IS NULL)) AND (([StaffID] = @original_StaffID) OR ([StaffID] IS NULL AND @original_StaffID IS NULL))">
         <DeleteParameters>
             <asp:Parameter Name="original_DesignationID" Type="Int32" />
